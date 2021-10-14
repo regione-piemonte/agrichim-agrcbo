@@ -1,0 +1,211 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/codiceFiscale.js"></script>
+<script src="../layout/js/partitaIVA.js"></script>
+<script src="../layout/js/filtriStampaFatture.js"></script>
+<script src="../layout/js/verificaData.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup.gif" width="638" height="40" alt="RuparPiemonte"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" background="../layout/im/pix_verde_nuovo.gif">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim_nuovo.gif" alt="servizio agrichim" width="164" height="13" align="top">
+                      </td>
+                      <td height="1" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" background="../layout/im/pix_verde_nuovo.gif">
+                                    <div align="center"> <br>
+                                      <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td> <p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente</strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaAnalisi.jsp" target="_nuova_"><img src="../layout/im/tit_sx_nuovaAnalisi_off.gif" alt="prenotazione nuova analisi" width="124" height="29" border="0"></a><br>
+                                      <br>
+                                      <a href="../view/menuCampioni.jsp"><img src="../layout/im/tit_sx_campioni_off.gif" alt="campioni" width="124" height="29" border="0"></a>
+                                      <br>
+                                      <br>
+                                       <a href="../view/menuAnagrafiche.jsp"><img src="../layout/im/tit_sx_anagrafiche_off.gif" alt="anagrafiche" width="124" height="29" border="0"></a><br><br>
+                                       <a href="../view/ricercaPreventivi.jsp"><img src="../layout/im/tit_sx_gestionePreventivi_off.gif" alt="gestione preventivi" width="124" height="29" border="0"></a><br><br>
+                                      <a href="../view/menuTabelle.jsp"><img src="../layout/im/tit_sx_datisistema_off.gif" alt="dati di sistema" width="124" height="29" border="0"></a><a href="javascript:pop2('anagraficaUtentePOP.htm');"><br>
+                                      <br>
+                                      </a>
+                                      <table width="124" border="0" cellpadding="2" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                        <tr>
+                                          <td><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#DE8636">
+                                              <tr>
+                                                <td background="../layout/im/utilita.gif">&nbsp;</td>
+                                              </tr>
+                                              <!--
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><strong><a href="../view/stampaLog.jsp" class="testoTabellelungheVerdeON">Stampa
+                                                  Log</a></strong> </td>
+                                              </tr>
+                                              -->
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><strong><a href="../controller/gestioneFatture.jsp" class="testoTabellelungheVerdeON">Gestione
+                                                  fatture emesse</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFE193"><span class="testoTabellelungheVerdeON"><strong>Elenco
+                                                  fatture</strong></span><strong>
+                                                  </strong></td>
+                                              </tr>
+                                              <tr> 
+                                                <td bgcolor="#FFFFFF"><strong><a class="testoTabellelungheVerdeON" href="../controller/fatturaInBianco.jsp">Emissione fattura in bianco</a></strong></td>
+                                              </tr>                                             
+                                              <!--
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><a href="../view/elencoCampioni.jsp" class="testoTabellelungheVerdeON"><strong>Elenco
+                                                  campioni</strong></a> </td>
+                                              </tr>
+                                              -->
+                                            </table></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/logout.jsp"><img src="../layout/im/tit_sx_logoutN_off.gif" alt="logout" width="124" height="29" border="0"><br>
+                                      <br>
+                                      </a> </div></td>
+                                  <td width="577" height="450" valign="top" bgcolor="#F2F1EA">
+                                    <h1> Stampa elenco fatture </h1>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td><div align="center"><strong>Parametri
+                                            di ricerca </strong> </div></td>
+                                      </tr>
+                                    </table>
+                                    <form name="ricerca" method="post" action="../controller/stampaFattureSearch.jsp" target="stampaFatture">
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td width="34%">Fatture<br>
+                                          con data compresa tra </td>
+                                        <td width="34%">
+                                          <input type="hidden" name="dataDa" value="">
+                                            <input name="dataDaGiorno" type="text" value="##dataDaGiorno" class="testoCampi" size="2" maxlength="2">
+                                            /
+                                            <input name="dataDaMese" type="text" class="testoCampi" value="##dataDaMese" size="2" maxlength="2">
+                                            /
+                                            <input name="dataDaAnno" type="text" class="testoCampi" value="##dataDaAnno" size="4" maxlength="4">
+                                        </td>
+                                        <td width="32%">
+                                          <input type="hidden" name="dataA" value="">
+                                          <input name="dataAGiorno" type="text" value="##dataAGiorno" class="testoCampi" size="2" maxlength="2">
+                                            /
+                                            <input name="dataAMese" type="text" class="testoCampi" value="##dataAMese" size="2" maxlength="2">
+                                            /
+                                            <input name="dataAAnno" type="text" class="testoCampi" value="##dataAAnno" size="4" maxlength="4">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Fatture<br>
+                                          con Anno/Numero compresi tra</td>
+                                        <td>
+                                          <input name="annoFatturaDa" type="text" value="##annoFatturaDa" class="testoCampi" size="4" maxlength="4">
+                                          /
+                                          <input name="numeroFatturaDa" type="text" value="##numeroFatturaDa" class="testoCampi" size="6" maxlength="6">
+                                        </td>
+                                        <td>
+                                          <input name="annoFatturaA" type="text" value="##annoFatturaA" class="testoCampi" size="4" maxlength="4">
+                                          /
+                                          <input name="numeroFatturaA" type="text" value="##numeroFatturaA" class="testoCampi" size="6" maxlength="6">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Codice Fiscale o Partita IVA</td>
+                                        <td colspan="2"> <input name="codFisPIVA" value="##codFisPIVA" type="text" class="testoCampi" size="25" maxlength="16">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                          <td>Stato pagamento</td>
+                                          <td colspan="2"> <select name="statoPagamento" class="testoCampi">
+                                              <option ##selectedDefaultStato value="">---------------------------</option>
+                                              <option ##selectedPagata value="S">Fatture pagate</option>
+                                              <option ##selectedDaPagare value="N">Fatture da pagare</option>
+                                            </select> </td>
+                                        </tr>
+                                        <tr>
+                                          <td>Stato fattura</td>
+                                          <td colspan="2"> <select name="statoFattura" class="testoCampi">
+                                              <option ##selectedDefaultPagamento value="">----------------</option>
+                                              <option ##selectedValida value="N">Valide</option>
+                                              <option ##selectedAnnullata value="S">Annullate</option>
+                                            </select> </td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                    <table width="98%" border="0" cellspacing="5" cellpadding="0">
+                                      <tr>
+                                        <td><div align="center"><a href="javascript: ricercaElenco(document.ricerca)"><img src="../layout/im/b_stamap.gif" alt="stampa" width="150" height="16" border="0"></a></div></td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <h1>&nbsp; </h1>
+                                    </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="www.ruparpiemonte.it"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

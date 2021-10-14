@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+
+<body text="#000000" onload="window.focus();" onunload="window.opener.focus()">
+  @@anagrafica
+  <table width="500" border="0" class="boxborder">
+    <tr>
+      <td>
+        <div align="center">
+          <h2>Dati anagrafici <br>
+          </h2>
+          <table width="100%" border="0" align="center">
+            <tr>
+              <td>Tipo persona</td>
+              <td colspan="2"> $$tipoPersona</td>
+            </tr>
+            <tr>
+              <td>Tipo utente</td>
+              <td colspan="2"> $$tipoUtente</td>
+            </tr>
+            @@organizzazione
+            <tr>
+              <td>Organizzazione del tecnico</td>
+              <td colspan="2"> $$nomeOrganizzazione
+              </td>
+            </tr>
+            @@organizzazione
+            <tr>
+              <td>Codice Fiscale</td>
+              <td colspan="2">
+                $$codiceIdentificativo
+              </td>
+            </tr>
+            <tr>
+              <td>Cognome o Ragione sociale</td>
+              <td colspan="2">
+                $$cognomeRagioneSociale
+              </td>
+            </tr>
+            <tr>
+              <td>Nome (* se persona fisica)</td>
+              <td colspan="2">
+                $$nome
+              </td>
+            </tr>
+            <tr>
+              <td>Indirizzo</td>
+              <td colspan="2">
+                $$indirizzo
+              </td>
+            </tr>
+            <tr>
+              <td>CAP</td>
+              <td colspan="2">
+                $$cap
+              </td>
+            </tr>
+            <tr>
+              <td>Comune</td>
+              <td colspan="2">
+                $$comuneResidenza
+              </td>
+            </tr>
+            <tr>
+              <td>E.mail</td>
+              <td colspan="2">
+                $$email
+              </td>
+            </tr>
+            <tr>
+              <td>Telefono fisso</td>
+              <td colspan="2">
+                $$telefono
+              </td>
+            </tr>
+            <tr>
+              <td>Cellulare</td>
+              <td colspan="2">
+                $$cellulare
+              </td>
+            </tr>
+            <tr>
+              <td>Fax</td>
+              <td colspan="2">
+                $$fax
+              </td>
+            </tr>
+          </table>
+          <br>
+          <table width="100%" border="0" align="center" cellpadding="0" cellspacing="5">
+            <tr>
+              <td align="center"><div align="center"><a href="javascript:window.close();"><img src="../layout/im/b_chiudi.gif" alt="chiudi" width="150" height="16" border="0"></a></div></td>
+            </tr>
+          </table>
+          <br>
+        </div>
+      </td>
+    </tr>
+  </table>
+  @@anagrafica
+</body>
+</html>

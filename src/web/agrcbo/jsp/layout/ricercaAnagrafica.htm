@@ -1,0 +1,284 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/codiceFiscale.js"></script>
+<script src="../layout/js/partitaIVA.js"></script>
+<script src="../layout/js/filtriRicercaAnagrafica.js"></script>
+<script>
+@@elencoSi
+var idAnagraficaSelected=$$idAnagraficaPrimo;
+@@elencoSi
+function conferma()
+{
+  document.ricerca.action="../view/ricercaAnagrafica.jsp";
+  document.ricerca.submit();
+}
+</script>
+
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup.gif" width="638" height="40" alt="RuparPiemonte"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" background="../layout/im/pix_verde_nuovo.gif">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim_nuovo.gif" alt="servizio agrichim" width="164" height="13" align="top">
+                      </td>
+                      <td height="1" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" background="../layout/im/pix_verde_nuovo.gif">
+                                    <div align="center"> <br>
+                                      <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td> <p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente</strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaAnalisi.jsp" target="_nuova_"><img src="../layout/im/tit_sx_nuovaAnalisi_off.gif" alt="prenotazione nuova analisi" width="124" height="29" border="0"></a><br>
+                                      <br>
+                                      <a href="../view/menuCampioni.jsp"><img src="../layout/im/tit_sx_campioni_off.gif" alt="campioni" width="124" height="29" border="0"></a>
+                                      <br>
+                                      <br>
+                                      <table width="124" border="0" cellpadding="2" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                        <tr>
+                                          <td><table width="100%" border="0" cellpadding="4" cellspacing="1" background="../layout/im/anagrafiche.gif">
+                                              <tr>
+                                                <td>&nbsp;</td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF" class="testoTabellelungheVerdeON"><strong><a href="../controller/ricercaOrganizzazione.jsp" class="testoTabellelungheVerdeON">Ricerca
+                                                  organizzazione</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFE193" class="testoTabellelungheVerdeON"><strong>Ricerca
+                                                  anagrafica clienti e utenti</strong></td>
+                                              </tr>
+                                            </table></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../view/ricercaPreventivi.jsp"><img src="../layout/im/tit_sx_gestionePreventivi_off.gif" alt="gestione preventivi" width="124" height="29" border="0"></a>
+                                      <br><br>
+                                       <a href="../view/menuTabelle.jsp"><img src="../layout/im/tit_sx_datisistema_off.gif" alt="dati di sistema" width="124" height="29" border="0"></a><br>
+<!--                                       <br> -->
+<!--                                       <a href="../view/utility.jsp"><img src="../layout/im/tit_sx_utilita_off.gif" alt="utilit&agrave;" width="124" height="29" border="0"></a> -->
+                                      <br>
+                                      <br>
+                                      <a href="../controller/logout.jsp"><img src="../layout/im/tit_sx_logoutN_off.gif" alt="logout" width="124" height="29" border="0"><br>
+                                      <br>
+                                      </a> </div></td>
+                                  <td width="577" height="450" valign="top" bgcolor="#F2F1EA">
+                                    <h1> Ricerca anagrafiche clienti e utenti<br>
+                                    </h1>
+                                    <h1>&nbsp; </h1>
+                                   <form name="ricerca" method="post" action="../controller/ricercaAnagraficaSearch.jsp">
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td width="34%">Tipo utente</td>
+                                        <td width="66%" colspan="2"> <select name="tipoUtente" class="testoCampi">
+                                            <option value="-1" ##selectedDef>------------------</option>
+                                            <option value="T" ##selectedTec>Tecnico</option>
+                                            <option value="P" ##selectedPriv>Privato</option>
+                                            <option value="L" ##selectedLab>Dipendente LAR</option>
+                                          </select> </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Tipo organizzazione</td>
+                                        <td colspan="2">
+                                          <select name="tipoOrganizzazione" onChange="conferma();" class="testoCampi">
+                                            <option value="-1" selected>----------</option>
+                                              @@tipoOrganizzazione
+                                                <option value="$$cod" $$selected>$$desc</option>
+                                              @@tipoOrganizzazione
+                                          </select> </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Organizzazione</td>
+                                        <td colspan="2">
+                                          <select name="organizzazione" class="testoCampi">
+                                            <option value="-1" selected>----------</option>
+                                            @@organizzazione
+                                              <option value="$$cod" $$selected>$$desc</option>
+                                            @@organizzazione
+                                          </select> </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Cognome o Ragione Sociale <br> <span class="testoTabellelunghe">(ricerca
+                                          per chiavi parziale impostare almeno
+                                          3 caratteri)</span></td>
+                                        <td colspan="2"> <input name="ragioneSociale" type="text" class="testoCampi" value="##ragioneSociale" size="30" maxlength="60">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Codice Fiscale o Partita IVA</td>
+                                        <td colspan="2"> <input name="codFisPIVA" type="text" class="testoCampi" value="##codFisPIVA" size="20" maxlength="16">
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <br> <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td><div align="center"><a href="javascript: ricercaElenco(document.ricerca)"><img src="../layout/im/b_ricerca.gif" alt="ricerca" width="150" height="16" border="0"></a></div></td>
+                                      </tr>
+                                    </table>
+                                   </form>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                     <tr>
+                                        <td colspan="6" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    @@elencoAnagraficheNo
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td width="27%" align="center"><h2>Non &egrave; stata trovata nessuna anagrafica</h2></td>
+                                      </tr>
+                                    </table>
+                                    @@elencoAnagraficheNo
+
+                                    @@elencoAnagrafiche
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                          <td align="left" class="paginazione">Numero record
+                                           trovati: $$num</td>
+                                          <td align="right" class="paginazione">$$pagine&nbsp;</td>
+                                       </tr>
+                                    </table>
+                                    <br> <table width="98%" border="0" align="center" cellpadding="1" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                      <tr>
+                                        <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="2" bgcolor="#FFFFFF">
+                                            <tr>
+                                              <td width="5%" bgcolor="#F2F1EA"><b></b></td>
+                                              <td width="19%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Cognome
+                                                o<br>
+                                                Ragione Sociale</b></td>
+                                              <td width="11%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Nome</b></td>
+                                              <td width="29%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Codice
+                                                Fiscale o <br>
+                                                Partita IVA</b></td>
+                                              <td width="15%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Tipo
+                                                utente</b></td>
+                                              <td width="21%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Comune</b></td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="6" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <form name="anagrafica" method="post">
+                                            @@elencoAnagraficaBody
+                                            <tr>
+                                              <td>
+                                               <input type="radio" name="radiobutton" value="$$idAnagrafica" $$checked onClick="idAnagraficaSelected=$$idAnagrafica">
+                                              </td>
+                                              <td class="testoTabellelunghe">$$cognomeRagioneSociale</td>
+                                              <td class="testoTabellelunghe">$$nome</td>
+                                              <td class="testoTabellelunghe">$$codiceIdentificativo</td>
+                                              <td class="testoTabellelunghe">$$tipoUtente</td>
+                                              <td class="testoTabellelunghe">$$comuneResidenza</td>
+                                            </tr>
+                                            @@elencoAnagraficaBody
+                                            </form>
+                                          </table></td>
+                                      </tr>
+                                    </table>
+                                    <br> <table width="98%" border="0" align="center">
+                                      <tr>
+                                        @@indietro
+                                          <form name="Lista1" method="post" action="../view/ricercaAnagrafica.jsp">
+                                            <input type="hidden" name="attuale" value="$$attuale">
+                                            <td width="36%" class="pulsante"><a href="javascript:document.Lista1.submit();" class="pulsante">Pagina
+                                              indietro</a></td>
+                                          </form>
+                                        @@indietro
+                                        @@nonIndietro
+                                              <td width="36%">&nbsp;$$nonIndietro</td>
+                                        @@nonIndietro
+                                        <td width="24%"> <div align="right"></div></td>
+                                        @@avanti
+                                          <form name="Lista2" method="post" action="../view/ricercaAnagrafica.jsp">
+                                            <input type="hidden" name="attuale" value="$$attuale">
+                                            <td width="40%"><div align="right"><a href="javascript:document.Lista2.submit();" class="pulsante">Pagina
+                                            avanti</a></div></td>
+                                          </form>
+                                        @@avanti
+                                        @@nonAvanti
+                                              <td width="40%"><div align="right">&nbsp;$$nonAvanti</div></td>
+                                        @@nonAvanti
+                                      </tr>
+
+                                    </table>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td><div align="right"><a href="javascript:popGesDet('../view/anagraficaPOP.jsp',document.anagrafica,700,410);"><img src="../layout/im/b_dettagli.gif" alt="visualizza dettagli" width="150" height="16" border="0"></a></div></td>
+                                        <td><div align="center"><a href="javascript:popGesDet('../view/updateUserTecnicoPOP.jsp',document.anagrafica,700,560);"><img src="../layout/im/b_modifica.gif" alt="modifica" width="150" height="16" border="0"></a></div></td>
+                                        <td><a href="javascript:pop('../view/newUserTecnicoPOP.jsp',700,560);"><img src="../layout/im/b_ut_tec.gif" alt="nuovo utente tecnico" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                    </table>
+                                    @@elencoAnagrafiche
+                                    @@elencoAnagraficheNo
+                                      <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td><a href="javascript:pop('../view/newUserTecnicoPOP.jsp',700,560);"><img src="../layout/im/b_ut_tec.gif" alt="nuovo utente tecnico" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                    </table>
+                                    @@elencoAnagraficheNo
+                                    <br> <br> <p>&nbsp;</p></td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="www.ruparpiemonte.it"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

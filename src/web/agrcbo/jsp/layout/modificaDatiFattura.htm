@@ -1,0 +1,390 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/checkUncheck.js"></script>
+<script src="../layout/js/codiceFiscale.js"></script>
+<script src="../layout/js/partitaIVA.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+function salva(form){
+    var msg = '';
+    var i;
+    var sFatturare = '';
+    for (i = 0; i < form.fatturare.length; i++){
+        if (form.fatturare[i].checked){
+            sFatturare = form.fatturare[i].value;
+            break;
+        }
+        if (i == (form.fatturare.length - 1))
+            msg = msg+'Selezionare l\'intestatario della fattura\n';
+    }   
+
+    /**
+    *  Il campo Partita IVA o Codice fiscale può contenere
+    *  - sia una partita iva (quindi deve contenere solo numeri ed essere
+    *    lungo 11)
+    *  - sia un codice fiscale (quindi deve essere lungo 16 e bisogna fare
+    *    dei controlli ulteriori sulla posizione delle lettere e dei numeri)
+    *  a seconda che il tipo sia azienda o privato
+    **/
+    if (sFatturare == 'A')  {
+        form.cfPartitaIva.value = form.cfPartitaIva.value.trim();
+        form.ragioneSociale.value = form.ragioneSociale.value.trim();
+        form.indirizzo.value = form.indirizzo.value.trim();
+        lung = form.cfPartitaIva.value.length;
+        if (lung != 11 && lung != 16)    
+            msg = msg + 'Valorizzare una voce corretta in "Partita IVA o Codice fiscale"\n';
+        else{
+            form.cfPartitaIva.value = form.cfPartitaIva.value.toUpperCase();
+            if (lung == 11){
+                msgTmp = controllaPartitaIVA(form.cfPartitaIva.value);
+                if (msgTmp != '')
+                    msg = msg + '"Partita IVA o Codice fiscale" - ' + msgTmp + '\n';
+    
+            }                   
+            if (lung == 16){     
+                msgTmp = controllaCodiceFiscale(form.cfPartitaIva.value);
+                if (msgTmp != '')        
+                    msg = msg + '"Partita IVA o Codice fiscale" - ' + msgTmp + '\n';
+            }
+        }
+        if (form.ragioneSociale.value == '')    
+            msg = msg + 'Valorizzare la voce "Cognome e Nome o Ragione Sociale"\n';
+        if (form.indirizzo.value == '')    
+            msg = msg + 'Valorizzare la voce "Indirizzo"\n';
+        if (!((form.cap.value.length == 5) && (isNumber(form.cap.value))))    
+            msg = msg + 'Valorizzare correttamente la voce "CAP"\n';
+
+        if (form.comune.value == '')    
+            msg = msg + 'Selezionare il "Comune"\n';
+    }
+    if((form.cod_destinatario.value==null || form.cod_destinatario.value=="")&&(form.pec.value == null || form.pec.value ==''))
+        msg=msg+'Valorizzare almeno una voce tra "Codice Destinatario" e "PEC"\n';
+    else if((form.cod_destinatario.value!=null && form.cod_destinatario.value!="") && form.cod_destinatario.length < 7)
+        msg=msg+'"Codice Destinatario" deve essere di 7 caratteri\n';
+    else if((form.pec.value != null && form.pec.value !='') && !controllaEmail(form.pec.value))
+        msg=msg+'"PEC" non valida\n';
+
+
+
+    if (msg != '')  {
+        alert( "Dati incompleti\n\n" + msg);
+        return false;
+    }else  
+        return true;
+}
+
+function gestioneAltriEstremi(form){
+	var i = 0;
+	var isAltriEstremi = false;
+	
+  if (form.fatturare != null){
+  	if (form.fatturare[0])		{
+  		//E' un array di radiobutton con lo stesso nome
+  	  for (i = 0; i < form.fatturare.length; i++)  		{
+  	  	if (form.fatturare[i].checked && form.fatturare[i].value == 'A')  			{
+  	  		isAltriEstremi = true;
+					break;
+  			} 
+  		}  		
+	}  	else		{
+  		//C'è un solo radiobutton
+  		if (form.fatturare.checked && form.fatturare.value == 'A')			{
+	  		isAltriEstremi = true;
+			}
+		}
+}
+
+  if (isAltriEstremi)  {
+  	abilitaText(form.cfPartitaIva);
+  	abilitaText(form.ragioneSociale);
+  	abilitaText(form.indirizzo);
+  	abilitaText(form.cap);
+		document.getElementById("idPulsanteCercaComune").style.display = '';
+  }  else  {
+    disabilitaText(form.cfPartitaIva);
+    disabilitaText(form.ragioneSociale);
+    disabilitaText(form.indirizzo);
+    disabilitaText(form.cap);
+    form.comune.value = '';
+    form.siglaProvincia.value = '';
+    form.comuneDesc.value = '';
+		document.getElementById("idPulsanteCercaComune").style.display = 'none';
+  }
+}
+</script>
+</head>
+<body bgcolor="#CCCCCC" onload="gestioneAltriEstremi(document.modificaDatiFattura);">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup.gif" width="638" height="40" alt="RuparPiemonte"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" background="../layout/im/pix_verde_nuovo.gif">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim_nuovo.gif" alt="servizio agrichim" width="164" height="13" align="top">
+                      </td>
+                      <td height="1" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" background="../layout/im/pix_verde_nuovo.gif">
+                                    <div align="center"> <br>
+                                      <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td>
+                                            <p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente</strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaAnalisi.jsp" target="_nuova_"><img src="../layout/im/tit_sx_nuovaAnalisi_off.gif" alt="prenotazione nuova analisi" width="124" height="29" border="0"></a><br>
+                                      <br>
+                                      <table width="124" height="142" border="0" cellpadding="2" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                        <tr>
+                                          <td><table width="100%" height="169" border="0" cellpadding="4" cellspacing="1" background="../layout/im/tit_sx_campioni_on3.gif">
+                                              <tr>
+                                                <td>&nbsp;</td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF" class="testoTabellelungheVerdeON"><strong><a href="../controller/ricercaCampioni.jsp" class="testoTabellelungheVerdeON">Ricerca
+                                                  campione</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><strong><a href="../controller/analisiRichieste.jsp" class="testoTabellelungheVerdeON">Analisi
+                                                  richieste</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><strong><a href="../controller/campioniLaboratorio.jsp" class="testoTabellelungheVerdeON">Campioni
+                                                  in laboratorio</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF" class="testoTabellelungheVerde"><strong><a href="../controller/analisiTerminate.jsp" class="testoTabellelungheVerdeON">Referti
+                                                  da emettere</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFE193"><strong><a href="../controller/refertiEmessi.jsp" class="testoTabellelungheVerdeON">Referti
+                                                  emessi</a></strong> </td>
+                                              </tr>
+                                            </table></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../view/menuAnagrafiche.jsp"><img src="../layout/im/tit_sx_anagrafiche_off.gif" alt="anagrafiche" width="124" height="29" border="0"></a><br><br>
+                                      <a href="../view/ricercaPreventivi.jsp"><img src="../layout/im/tit_sx_gestionePreventivi_off.gif" alt="gestione preventivi" width="124" height="29" border="0"></a><br><br>
+                                      <br>
+                                      <a href="../view/menuTabelle.jsp"><img src="../layout/im/tit_sx_datisistema_off.gif" alt="dati di sistema" width="124" height="29" border="0"></a><br>
+<!--                                       <br> -->
+<!--                                       <a href="../view/utility.jsp"><img src="../layout/im/tit_sx_utilita_off.gif" alt="utilit&agrave;" width="124" height="29" border="0"></a> -->
+                                      <br>
+                                      <br>
+                                      <a href="../controller/logout.jsp"><img src="../layout/im/tit_sx_logoutN_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                    </div>
+                                  </td>
+                                  <td width="577" height="450" valign="top" bgcolor="#F2F1EA"> 
+                                    <h1>Referti emessi - Modifica dati fatturazione</h1>
+                                    <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr valign="top"> 
+                          							<td width="30%" class="pul"><div align="center" class="pul">Scheda di accompagnamento</div></td>
+                                        <td width="25%" class="pul"><div align="center" class="pul">Rapporto di prova</div></td>
+                                        <td width="25%" class="pulselect">Modifica dati fattura</td>
+                                        <td width="20%" class="pul"><div align="center" class="pul">Emetti fattura</a></div></td>
+                                      </tr>
+                                    </table>
+                                    <br> <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td width="27%">
+                                        	<p>
+                                        	  Con questa funzione &egrave; possibile modificare i dati di fatturazione di una o pi&ugrave; analisi.
+                                          </p>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <br/>
+                                    <table width="98%" border="0" align="center" cellpadding="1" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                      <tr> 
+                                        <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="2" bgcolor="#FFFFFF" class="testoTabellelunghe">
+                                            <tr class="testoTabellelunghe"> 
+                                              <td width="10%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Num. richiesta</b></td>
+                                              <td width="10%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>N.Camp./<br/>Anno</b><br></td>
+                                              <td width="20%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><strong>Etichetta</strong></td>
+                                              <td width="20%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><strong>Proprietario</strong></td>
+                                              <td width="20%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Richiedente</b></td>
+                                              <td width="20%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Note</b></td>
+                                            </tr>
+                                            <tr> 
+                                              <td colspan="9" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                            </tr>
+                                           	<!--@@elencoCampioneBody-->
+                                           		<tr valign="top"> 
+                                             		<td class="testoTabellelunghe">$$idRichiesta</td>
+                                             		<td class="testoTabellelunghe">$$numeroCampione/$$annoCampione</td>
+                                             		<td class="testoTabellelunghe">$$descrizioneEtichetta</td>
+                                             		<td class="testoTabellelunghe">$$proprietario</td>
+                                             		<td class="testoTabellelunghe">$$richiedente</td>
+                                             		<td class="testoTabellelunghe">$$note</td>
+                                             		 </tr>
+                                             	<!--@@elencoCampioneBody-->
+                                          </table></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <form name="modificaDatiFattura"  method="post" action="../controller/modificaDatiFattura.jsp">
+	                                    <input type="hidden" name="funzione" size="6" value=""/>
+	                                    <input type="hidden" name="idRichiestaSearch" size="6" value="$$idRichiestaSearch"/>
+	                                    <table width="98%" border="0" align="center">
+	                                      <tr> 
+	                                        <td  colspan="2"> <div align="center"><strong>Estremi di fatturazione</strong></div></td>
+	                                      </tr>
+	                                        <td colspan="2" ><br>
+	                                          Intestare la fattura a:</td>
+	                                      </tr>
+	                                      
+	                                      @@blkIntestazioneTecnico
+	                                      <tr> 
+	                                        <td colspan="2" ><p> 
+	                                            <input type="radio" name="fatturare" value="T" $$checkedFatturareTecnico onclick="gestioneAltriEstremi(document.modificaDatiFattura);">
+	                                            Tecnico </p></td>
+	                                      </tr>
+	                                      <tr> 
+	                                        <td colspan="2" ><input type="radio" name="fatturare" value="O" $$checkedFatturareOrganizzazioneTecnico onclick="gestioneAltriEstremi(document.modificaDatiFattura);">
+	                                          Organizzazione del tecnico</td>
+	                                      </tr>
+	                                      @@blkIntestazioneTecnico
+	                                      
+	                                      @@blkIntestazioneProprietario
+	                                      <tr> 
+	                                        <td colspan="2" ><p> 
+	                                            <input type="radio" name="fatturare" value="P" $$checkedFatturareProprietario onclick="gestioneAltriEstremi(document.modificaDatiFattura);">
+	                                            Proprietario del campione </p></td>
+	                                      </tr>
+	                                      @@blkIntestazioneProprietario
+
+	                                      <tr> 
+	                                        <td colspan="2" ><p> 
+	                                            <input type="radio" name="fatturare" value="U" $$checkedFatturarePrivato onclick="gestioneAltriEstremi(document.modificaDatiFattura);">
+	                                            Privato</p></td>
+	                                      </tr>	                                      
+	                                      <tr> 
+	                                        <td colspan="2" >
+                                        		<input type="radio" name="fatturare" value="A" $$checkedFatturareAltriEstremi onclick="gestioneAltriEstremi(document.modificaDatiFattura);">
+                                          	Altri estremi (completare i dati successivi)
+	                                        </td>
+	                                      </tr>
+	                                      <tr><td>&nbsp;</td></tr>
+	                                      <tr> 
+	                                        <td width="36%">Codice fiscale o Partita IVA</td>
+	                                        <td width="64%">
+	                                        	<input name="cfPartitaIva" value="$$cfPartitaIva" type="text" class="testoCampi" size="25" maxlength="16">$$err_cfPartitaIva
+	                                        </td>
+	                                      </tr>
+	                                      <tr> 
+	                                        <td>Cognome e Nome o Ragione Sociale</td>
+	                                        <td>
+	                                        	<input name="ragioneSociale" value="$$ragioneSociale" type="text" class="testoCampi" size="60" maxlength="60"> $$err_ragioneSociale
+	                                        </td>
+	                                      </tr>
+	                                      <tr> 
+	                                        <td>Indirizzo</td>
+	                                        <td>
+	                                        	<input name="indirizzo" value="$$indirizzo" type="text" class="testoCampi" size="50" maxlength="40">$$err_indirizzo
+	                                        </td>
+	                                      </tr>
+	                                      <tr> 
+	                                        <td>CAP</td>
+	                                        <td>
+	                                        	<input name="cap" value="$$cap" type="text" class="testoCampi" size="5" maxlength="5">$$err_cap
+	                                        </td>
+	                                      </tr>
+	                                      <tr> 
+	                                        <td>Comune</td>
+	                                        <td>
+	                                        	<input type="hidden" name="comune" value="$$comune">
+	                                        	<input type="hidden" name="siglaProvincia" value="$$siglaProvincia">
+	                                        	<input name="comuneDesc" value="$$comuneDesc" type="text" class="testoCampi" size="45" maxlength="40" readonly> 
+	                                        	<a href="javascript:popComuneSearch(document.modificaDatiFattura.comune, document.modificaDatiFattura.comuneDesc, document.modificaDatiFattura.siglaProvincia);" class="pulsante" id="idPulsanteCercaComune">Seleziona</a>$$err_descComune
+	                                        </td>
+	                                      </tr>
+	                                      <tr> 
+                                            <td>Codice Destinatario (per fattura elettronica)</td>
+                                            <td>
+                                                <input name="cod_destinatario" value="$$cod_destinatario" type="text" class="testoCampi" size="7" maxlength="7">$$err_cod_destinatario
+                                            </td>
+                                          </tr>
+                                          <tr> 
+                                            <td>PEC (per fattura elettronica)</td>
+                                            <td>
+                                                <input name="pec" value="$$pec" type="text" class="testoCampi" size="50">$$err_pec
+                                            </td>
+                                          </tr>
+	                                    </table>
+                                    </form>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td height="17">
+                                        	<div align="center">
+                                        		<a href="javascript:if (salva(document.modificaDatiFattura)) submitFormFunzione(document.modificaDatiFattura, 'conferma');"><img src="../layout/im/b_conferma.gif" alt="conferma" width="150" height="16" border="0"></a>
+                                        		<span>&nbsp;</span>
+                                        		<a href="../view/refertiEmessi.jsp"><img src="../layout/im/b_annulla.gif" alt="annulla" width="150" height="16" border="0"></a>
+                                        	</div>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <p>&nbsp;</p></td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333"> 
+          <td><a href="http://www.csi.it"><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</map> 
+</body>
+</html>

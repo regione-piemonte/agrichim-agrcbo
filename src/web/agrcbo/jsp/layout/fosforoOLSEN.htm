@@ -1,0 +1,322 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/isFloat.js"></script>
+<script src="../layout/js/dotCheck.js"></script>
+<script src="../layout/js/fosforoMetodoOLSEN.js"></script>
+<script>
+function cancella()
+{
+  @@cancella
+  if (confirm('Il record verrà cancellato. Confermi?'))
+  {
+    conducibilitaSalinita.azione.value='delete';
+    conducibilitaSalinita.submit();
+  }
+  @@cancella
+  @@nonCancella
+  alert('Non è presente alcun record da cancellare');
+  @@nonCancella
+}
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup.gif" width="638" height="40" alt="RuparPiemonte"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" background="../layout/im/pix_verde_nuovo.gif">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim_nuovo.gif" alt="servizio agrichim" width="164" height="13" align="top">
+                      </td>
+                      <td height="1" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" background="../layout/im/pix_verde_nuovo.gif">
+                                    <div align="center"> <br>
+                                      <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td>
+                                            <p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente</strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaAnalisi.jsp" target="_nuova_"><img src="../layout/im/tit_sx_nuovaAnalisi_off.gif" alt="prenotazione nuova analisi" width="124" height="29" border="0"></a><br>
+                                      <br>
+                                      <table width="124" height="142" border="0" cellpadding="2" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                        <tr>
+                                          <td><table width="100%" height="169" border="0" cellpadding="4" cellspacing="1" background="../layout/im/tit_sx_campioni_on3.gif">
+                                              <tr>
+                                                <td>&nbsp;</td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF" class="testoTabellelungheVerdeON"><strong><a href="../controller/ricercaCampioni.jsp" class="testoTabellelungheVerdeON">Ricerca
+                                                  campione</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><strong><a href="../controller/analisiRichieste.jsp" class="testoTabellelungheVerdeON">Analisi
+                                                  richieste</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFE193"><strong><a href="../controller/campioniLaboratorio.jsp" class="testoTabellelungheVerdeON">Campioni
+                                                  in laboratorio</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF" class="testoTabellelungheVerde"><strong><a href="../controller/analisiTerminate.jsp" class="testoTabellelungheVerdeON">Referti
+                                                  da emettere</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><span class="testoTabellelungheVerde"><strong><a href="../controller/refertiEmessi.jsp" class="testoTabellelungheVerdeON">Referti
+                                                  emessi</a></strong></span> </td>
+                                              </tr>
+                                            </table></td>
+                                        </tr>
+                                      </table>
+                                      <a href="javascript:pop2('anagraficaUtentePOP.jsp');"><br>
+                                      </a><a href="../view/menuAnagrafiche.jsp"><img src="../layout/im/tit_sx_anagrafiche_off.gif" alt="anagrafiche" width="124" height="29" border="0"></a><br><br>
+                                      <a href="../view/ricercaPreventivi.jsp"><img src="../layout/im/tit_sx_gestionePreventivi_off.gif" alt="gestione preventivi" width="124" height="29" border="0"></a><br><br>
+                                      <a href="homeFrontOffice.jsp"><br>
+                                      </a> <a href="../view/menuTabelle.jsp"><img src="../layout/im/tit_sx_datisistema_off.gif" alt="dati di sistema" width="124" height="29" border="0"></a><br>
+<!--                                       <br> -->
+<!--                                       <a href="../view/utility.jsp"><img src="../layout/im/tit_sx_utilita_off.gif" alt="utilit&agrave;" width="124" height="29" border="0"></a> -->
+                                      <br>
+                                      <br>
+                                      <a href="../controller/logout.jsp"><img src="../layout/im/tit_sx_logoutN_off.gif" alt="logout" width="124" height="29" border="0"><br>
+                                      <br>
+                                      </a> </div>
+
+
+
+                                  </td>
+                                  <td width="577" height="450" valign="top" bgcolor="#F2F1EA">
+                                    <h1>Esito delle analisi - Terreni <br>
+                                    </h1>
+                                    <table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr align="center" valign="top">
+                                        <td width="20%" class="pul">
+                                        <a href="#" onClick="pop('../report/anagraficaCampione##codiceMateriale.pdf?idRichiesta=##idRichiesta',647,480,'pdf');" class="pul">Scheda di accompagnamento</a></td>
+                                        <td width="20%" class="pul"><a href="../controller/analisiRichiesteExcel.jsp" class="pul">Elenco analisi richieste</a></td>
+                                        <td width="20%" class="pulselect">Inserisci esito analisi</td>
+                                        <td width="20%" class="pul"><a href="../view/annullaRichiestaCamp.jsp?idRichiestaSearch=##idRichiesta" class="pul">Annulla richiesta</a></td>                                        
+                                        <td width="20%" class="pul"><a href="../view/esistoTerminato.jsp" class="pul">Conferma analisi</a></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td>Con questa funzione si inseriscono
+                                          i dati di risultato delle analisi per
+                                          i terreni. I dati sono suddivisi nelle
+                                          varie tipologie di dati omogenei. Inseriti
+                                          i dati di input, alla conferma vengono
+                                          calcolati e visualizzati i campi di
+                                          output.</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td colspan="8"> <div align="center"><strong>Dati
+                                            identificativi del campione </strong></div></td>
+                                      </tr>
+                                      <tr>
+                                        <td width="33%"  rowspan="2">Anno / Numero
+                                          campione</td>
+                                        <td width="67%" colspan="5" rowspan="2">
+                                         <form name="selectIdRichiesta" method="post" action="../view/fosforoOLSEN.jsp">
+                                          <select name="idRichiesta" class="testoCampi" onchange="submit();">
+                                            @@annoNumero
+                                              <option value="$$idRichiesta" $$selected>$$annoNumero</option>
+                                            @@annoNumero
+                                          </select> </td>
+                                         </form>
+                                      </tr>
+                                      <tr> </tr>
+                                    </table>
+                                    <table width="98%" border="0" align="center" cellpadding="1" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                      <tr>
+                                        <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="2" bgcolor="#FFFFFF" class="testoTabellelunghe">
+                                            <tr class="testoTabellelunghe">
+                                              <td width="25%" bgcolor="#F2F1EA" class="testoTabellelunghe"><b></b><b>Numero
+                                                richiesta</b></td>
+                                              <td width="25%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Materiale
+                                                /Matrice</b></td>
+                                              <td width="13%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe">
+                                                <b>Etichetta</b><b></b></td>
+                                              <td width="25%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Laboratorio
+                                                di analisi</b></td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="7" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                            </tr>
+                                           @@etichetta
+                                            <tr valign="top">
+                                              <td class="testoTabellelunghe">
+                                                $$idRichiesta</td>
+                                              <td class="testoTabellelunghe">$$descMateriale</td>
+                                              <td class="testoTabellelunghe">$$etichetta</td>
+                                              <td class="testoTabellelunghe">$$labAnalisi</td>
+                                            </tr>
+                                           @@etichetta
+                                          </table></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+
+                                    <CENTER>
+<TABLE WIDTH="550" border="0" cellspacing="0" cellpadding="0" BGCOLOR="#F2F1EA">
+<TR>
+  <TD width="65" valign="bottom">&nbsp;</TD>
+  <TD width="90" valign="bottom"><a class="##coloreTitoloGRANAUTOMATICO" @@hrefGRANAUTOMATICO href="../view/granulometriaMetodoAutomatico.jsp" @@hrefGRANAUTOMATICO>granulometria<br>metodo<br>automatico</a></TD>
+  <TD width="90" valign="bottom"><a class="##coloreTitoloREAZIONESUOLO" @@hrefREAZIONESUOLO href="../view/reazioneSuolo.jsp" @@hrefREAZIONESUOLO>reazione<br>del suolo</a></TD>
+  <TD width="90" valign="bottom"><a class="##coloreTitoloSOSTANZAORGANICA" @@hrefSOSTANZAORGANICA href="../view/sostanzaOrganica.jsp" @@hrefSOSTANZAORGANICA>sostanza<br>organica</a></TD>
+  <TD width="90" valign="bottom"><a class="##coloreTitoloCOMPLESSOSCAMBIO" @@hrefCOMPLESSOSCAMBIO href="../view/complessoScambio.jsp" @@hrefCOMPLESSOSCAMBIO>complesso<br>di scambio</a></TD>
+  <TD width="62" valign="bottom"><a class="##coloreTitoloMICROELEMENTI" @@hrefMICROELEMENTI href="../view/microelementi.jsp" @@hrefMICROELEMENTI>microelementi</a></TD>
+  <TD width="62" valign="bottom" align="right"><a class="##coloreTitoloMETALLIPESANTI" @@hrefMETALLIPESANTI href="../view/metalliPesanti.jsp" @@hrefMETALLIPESANTI>metalli<br>pesanti</a></TD>
+</TR>
+</TABLE>
+<TABLE WIDTH="550" border="0" cellspacing="0" cellpadding="0" BGCOLOR="#F2F1EA">
+<TR><TD><IMG SRC="../layout/im/menu_barra.gif" WIDTH="550" HEIGHT="23"></TD></TR>
+</TABLE>
+<TABLE WIDTH="550" border="0" cellspacing="0" cellpadding="0" BGCOLOR="#F2F1EA">
+<TR>
+  <TD width="20" valign="top">&nbsp;</TD>
+  <TD width="90" valign="top"><a class="##coloreTitoloUMIDITA" @@hrefUMIDITA href="../view/umidita.jsp" @@hrefUMIDITA>umidit&agrave; del<br>campione</a></TD>
+  <TD width="90" valign="top"><a class="##coloreTitoloGRANBOJOUCOS" @@hrefGRANBOJOUCOS href="../view/granulometriaMetodoBojoucos.jsp" @@hrefGRANBOJOUCOS>granulometria<br>metodo<br>Bojoucos</a></TD>
+  <TD width="90" valign="top"><a class="##coloreTitoloCALCIMETRIA" @@hrefCALCIMETRIA href="../view/calcimetria.jsp" @@hrefCALCIMETRIA>calcimetria</a></TD>
+  <TD width="90" valign="top"><a class="##coloreTitoloAZOTO" @@hrefAZOTO href="../view/azoto.jsp" @@hrefAZOTO>azoto</a></TD>
+  <TD width="90" valign="top"><a class="fuoco">fosforo<br>OLSEN</a></TD>
+  <TD width="80" valign="top"><a class="##coloreTitoloCONDUCIBILITASALINITA" @@hrefCONDUCIBILITASALINITA href="../view/conducibilitaSalinita.jsp" @@hrefCONDUCIBILITASALINITA>conducibilit&agrave;<br>o salinit&agrave;</a></TD>
+</TR>
+</TABLE>
+</CENTER>
+                                     <br>
+                                     @@nessuno
+                                     <br>
+                                     <br>
+                                     <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                         <td class="testoTabellelunghe" align="center"><b>Non è stata richiesta "L'analisi del fosforo olsen" per questo campione.</b></td>
+                                      </tr>
+                                    </table>
+                                    @@nessuno
+                                    @@errore
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+                                        non sono stati inseriti correttamente
+                                          <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    @@errore
+                                    @@modifica
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td class="testoOK">Dati registrati correttamente
+                                          <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    @@modifica
+                                    @@analisi
+                                    <form name="fosforoOLSEN" method="post" action="../controller/fosforoOLSEN.jsp">
+                                     <table width="98%" border="0" align="center">
+                                      <input type="hidden" name="azione" value="##azione">
+                                      <input type="hidden" name="idRichiesta" value="##idRichiestaCorrente">
+                                      <tr>
+                                        <td width="29%" class="testoTabellelunghe">Lettura
+                                          Fosforo (p.p.m.) (*)</td>
+                                        <td width="24%"> <input name="letturaFosforo" type="text"  value="##letturaFosforo" class="testoCampi" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore1</td>
+                                        <td colspan="3"> </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Fosforo
+                                          assimilabile (p.p.m.)</td>
+                                        <td> <input name="fosforoAssimilabile" type="text" disabled value="##fosforoAssimilabile" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="5" maxlength="5">
+                                        </td>
+                                        <td width="42%" ><div align="right" class="testoTabellelunghe">Anidride
+                                            fosforica assimilabile (p.p.m.)</div></td>
+                                        <td width="15%" colspan="3"> <input name="anidrideFosforica" value="##anidrideFosforica" type="text" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="5" maxlength="5">
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                         <td class="testoTabellelunghe" >I dati contrassegnati con (*) sono
+                                            obbligatori</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><div align="right"><a href="javascript:if (salva(fosforoOLSEN)) fosforoOLSEN.submit();"><img src="../layout/im/b_conferma.gif" alt="conferma" border="0" width="150" height="16"></a></div></td>
+                                        <td><a href="javascript:cancella();"><img src="../layout/im/b_elimina.gif" alt="elimina" width="150" border="0" height="16"></a></td>
+                                      </tr>
+                                    </table>
+                                    @@analisi
+                                    <p>&nbsp;</p></td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="www.ruparpiemonte.it"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

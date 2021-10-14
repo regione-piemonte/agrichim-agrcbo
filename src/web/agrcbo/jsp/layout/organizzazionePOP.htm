@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/mail.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/codiceFiscale.js"></script>
+<script src="../layout/js/partitaIVA.js"></script>
+<script src="../layout/js/organizzazionePOP.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+
+<body text="#000000" onLoad="window.focus();" onUnload="if (typeof(hWin)!='undefined') hWin.close(); window.opener.focus();">
+<form name="organizzazionePOP" method="post" action="../controller/##insertUpdate">
+  <table width="500" border="0" class="boxborder">
+    <tr>
+      <td>
+        <div align="center">
+          <h2>Dati anagrafici dell'organizzazione<br>
+          </h2>
+          <table width="100%" border="0" align="center">
+            @@errore
+            <tr>
+              <td colspan="2" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+              non sono stati inseriti correttamente
+                <br>
+                <br>
+              </td>
+            </tr>
+            @@errore
+            <tr>
+              <td width="25%">Tipo organizzazione (*) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td width="75%">
+                <select name="idTipoOrganizzazione" class="testoCampi">
+                  <option value="-1" selected>----------</option>
+                    @@tipoOrganizzazione
+                      <option value="$$cod" $$selected>$$desc</option>
+                    @@tipoOrganizzazione
+                </select>##errore1</td>
+            </tr>
+            <input type="hidden" value="##idOrganizzazione" name="idOrganizzazione">
+            <tr>
+              <td>Codice Fiscale / Partita IVA </td>
+              <td><input name="cfPartitaIva" type="text" value="##cfPartitaIva" class="testoCampi" size="25" maxlength="16">##errore2</td>
+            </tr>
+            <tr>
+              <td>Ragione Sociale (*) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td><input name="ragioneSociale" type="text" value="##ragioneSociale" class="testoCampi" size="60" maxlength="60">##errore3</td>
+            </tr>
+            <tr>
+              <td>Indirizzo (*) </td>
+              <td><input name="indirizzo" type="text" value="##indirizzo" class="testoCampi" size="50" maxlength="40">##errore4</td>
+            </tr>
+            <tr>
+              <td>Sede territoriale </td>
+              <td><input name="sedeTerritoriale" type="text" value="##sedeTerritoriale" class="testoCampi" size="30" maxlength="30">##errore5</td>
+            </tr>
+            <tr>
+              <td>CAP </td>
+              <td><input name="cap" type="text" value="##cap" class="testoCampi" size="5" maxlength="5">##errore6</td>
+            </tr>
+            <tr>
+              <td>Comune (* ) </td>
+              <input type="hidden" name="comune" value="##comune">
+              <td><input name="comuneDesc" type="text" value="##comuneDesc" class="testoCampi" size="50" maxlength="40" readonly>
+                ##errore7<a href="javascript:popComuneSearch(organizzazionePOP.comune,organizzazionePOP.comuneDesc);" class="pulsante">Seleziona</a> </td>
+            </tr>
+            <tr>
+              <td>Telefono </td>
+              <td><input name="telefono" type="text" value="##telefono" class="testoCampi" size="25" maxlength="20">##errore8</td>
+            </tr>
+            <tr>
+              <td>Fax </td>
+              <td><input name="fax" type="text" value="##fax" class="testoCampi" size="25" maxlength="20">##errore9</td>
+            </tr>
+            <tr>
+              <td>E.mail </td>
+              <td><input name="email" type="text" value="##email" class="testoCampi" size="50" maxlength="50">##errore10</td>
+            </tr>
+            <tr>
+              <td>Codice Destinatario</td>
+              <td><input name="codDestinatario" type="text" value="##codDestinatario" class="testoCampi" size="7" maxlength="7">##errore11</td>
+            </tr>
+            <tr>
+              <td>Pec</td>
+              <td><input name="pec" type="text" value="##pec" class="testoCampi" size="50" maxlength="50">##errore12</td>
+            </tr>
+            <tr>
+              <td>Codice Contabilia</td>
+              <td><input name="codContabilia" type="text" value="##codContabilia" class="testoCampi" size="7" maxlength="7">##errore13</td>
+            </tr>
+            <tr>
+              <td>&nbsp; </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2">I campi contrassegnati con (*) sono obbligatori.</td>
+            </tr>
+          </table>
+          <br>
+          <table width="100%" border="0" align="center" cellpadding="0" cellspacing="5">
+            <tr>
+              <td align="right"><div align="right"><a href="javascript:if (salva(organizzazionePOP)) organizzazionePOP.submit();"><img src="../layout/im/b_conferma.gif" alt="conferma" width="150" height="16" border="0"></a></div></td>
+              <td align="right"><div align="left"><a href="javascript:window.close();"><img src="../layout/im/b_annulla.gif" alt="annulla" width="150" height="16" border="0"></a></div></td>
+            </tr>
+          </table>
+          <br>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

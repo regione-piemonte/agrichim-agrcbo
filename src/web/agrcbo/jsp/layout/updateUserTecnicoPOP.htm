@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/mail.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/updateUserTecnicoPOP.js"></script>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+
+<body text="#000000" onLoad="window.focus();" onUnload="if (typeof(hWin)!='undefined') hWin.close(); window.opener.focus();">
+<form name="anagrafica" method="post" action="../controller/anagraficaTecnicoPOPUpdate.jsp">
+  <table width="500" border="0" class="boxborder">
+    <tr>
+      <td>
+        <div align="center">
+          <h2>Dati anagrafici <br>
+          </h2>
+          <table width="100%" border="0" align="center">
+          @@errore
+            <tr>
+              <td colspan="3" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+              non sono stati inseriti correttamente
+                <br>
+                <br>
+              </td>
+            </tr>
+          @@errore
+            <tr>
+              <td>Tipo persona</td>
+              <td colspan="2"> ##tipoPersona</td>
+              <input name="tipoPersona" type="hidden" value="##tipoPersona">
+            </tr>
+            <tr>
+              <td>Tipo utente</td>
+              <td colspan="2"> ##tipoUtente</td>
+              <input name="tipoUtente" type="hidden" value="##tipoUtente">
+            </tr>
+            @@organizzazione
+            <tr>
+              <td>Organizzazione del tecnico</td>
+              <td colspan="2"> $$nomeOrganizzazione
+              </td>
+            </tr>
+            @@organizzazione
+            <tr>
+              <td>Codice Fiscale</td>
+              <td colspan="2">
+                ##codiceIdentificativo
+              </td>
+              <input name="codiceIdentificativo" type="hidden" value="##codiceIdentificativo">
+            </tr>
+            <tr>
+              <td>Cognome o Ragione sociale (*)</td>
+              <td colspan="2"> <input name="cognomeRagioneSociale" type="text" value="##cognome" class="testoCampi" size="60" maxlength="60">
+              ##errore1</td>
+            </tr>
+            <tr>
+              <td>Nome (* se persona fisica)</td>
+              <td colspan="2"> <input name="nome" type="text" value="##nome" class="testoCampi" size="40" maxlength="40">
+              ##errore2</td>
+            </tr>
+            <tr>
+              <td>Indirizzo</td>
+              <td colspan="2"> <input name="indirizzo" type="text" value="##indirizzo" class="testoCampi" size="50" maxlength="40">
+              ##errore3</td>
+            </tr>
+            <tr>
+              <td>CAP</td>
+              <td colspan="2"> <input name="cap" type="text" value="##cap" class="testoCampi" size="5" maxlength="5">
+              ##errore4</td>
+            </tr>
+            <tr>
+              <input type="hidden" name="comuneResidenza" value="##istat">
+              <td>Comune (*) </td>
+              <td colspan="2"> <input name="comune" type="text" value="##comune" class="testoCampi" size="50" maxlength="40" readonly>
+                <a href="javascript:popComuneSearch(document.anagrafica.comuneResidenza,document.anagrafica.comune);" class="pulsante">Seleziona</a> ##errore5</td>
+            </tr>
+            <tr>
+              <td>E.mail</td>
+              <td colspan="2"> <input name="email" type="text" value="##eMail" class="testoCampi" size="50" maxlength="50">
+              ##errore6</td>
+            </tr>
+            <tr>
+              <td>Telefono fisso</td>
+              <td colspan="2"> <input name="telefono" type="text" value="##telefono" class="testoCampi" size="25" maxlength="20">
+              ##errore7</td>
+            </tr>
+            <tr>
+              <td>Cellulare</td>
+              <td colspan="2"> <input name="cellulare" type="text" value="##cellulare" class="testoCampi" size="25" maxlength="20">
+              ##errore8</td>
+            </tr>
+            <tr>
+              <td>Fax</td>
+              <td colspan="2"> <input name="fax" type="text" value="##fax" class="testoCampi" size="25" maxlength="20">
+              ##errore9</td>
+            </tr>
+            <tr>
+              <td>Codice Destinatario</td>
+              <td colspan="2"> <input name="codDestinatario" type="text" value="##codDestinatario" class="testoCampi" size="7" maxlength="7">
+              ##errore10</td>
+            </tr>
+            <tr>
+              <td>Pec</td>
+              <td colspan="2"> <input name="pec" type="text" value="##pec" class="testoCampi" size="50" maxlength="40">
+              ##errore11</td>
+            </tr>
+            <tr>
+              <td>Codice Contabilia</td>
+              <td colspan="2"> <input name="codContabilia" type="text" value="##codContabilia" class="testoCampi" size="7" maxlength="7">
+              ##errore12</td>
+            </tr>
+            <tr>
+              <td colspan="3" valign="top">I campi contrassegnati con (*) sono
+                obbligatori.</td>
+            </tr>
+          </table>
+          <br>
+          <table width="100%" border="0" align="center" cellpadding="0" cellspacing="5">
+            <tr>
+              <td align="right"><div align="right"><a href="javascript:if (salva(document.anagrafica)) document.anagrafica.submit();"><img src="../layout/im/b_conferma.gif" alt="conferma" width="150" height="16" border="0"></a></div></td>
+              <td align="right"><div align="left"><a href="javascript:window.close();"><img src="../layout/im/b_annulla.gif" alt="annulla" width="150" height="16" border="0"></a></div></td>
+            </tr>
+          </table>
+          <br>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

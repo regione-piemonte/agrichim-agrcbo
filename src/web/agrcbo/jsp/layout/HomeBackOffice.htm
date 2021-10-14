@@ -1,0 +1,159 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script>
+function checkUtente(form)
+{
+  var utenteOK = true;
+  form.password.value=form.password1.value+"        ";
+  form.password.value=form.password.value.substr(0,8);
+
+  if (form.username.value=="esperto")
+  {
+    form.USERID.value="- ERNESTO FERRANDO";
+    form.UID.value="E66666";
+    form.FUID.value="E";
+    form.LUID.value="FRRRST65D05H727N";
+  }
+  else if (form.username.value=="base")
+  {
+    form.USERID.value="- MARCO MAROCCO";
+    form.UID.value="E66665";
+    form.FUID.value="B";
+    form.LUID.value="MRCMRC67B12L219Y";
+  }
+  else utenteOK = false;
+
+  if (utenteOK)
+    form.submit();
+  else
+  {
+    alert("Username non esistente o password errata");
+    form.password.value="";
+    form.password1.value="";
+  }
+}
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup.gif" width="638" height="40" alt="SistemaPiemonte"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" background="../layout/im/pix_verde_nuovo.gif">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim_nuovo.gif" alt="servizio agrichim" width="164" height="13" align="top">
+                      </td>
+                      <td height="1" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="135" valign="top" background="../layout/im/pix_verde_nuovo.gif">
+                                    <div align="center"> <br>
+                                      <br>
+                                      <img src="../layout/im/tit_sx_home_onN.gif" alt="home" width="124" height="29">
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <br>
+                                    </div>
+
+
+
+                                  </td>
+                                  <td height="450" valign="baseline" bgcolor="#F2F1EA"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><h1><strong>Procedura di accesso AGRICHIM</strong>
+                                          </h1></td>
+                                      </tr>
+                                      <tr>
+                                        <td><h2>Inserisci codice utente </h2></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <br>
+                                    <form name="login" method="post" action="https://<NOT_USED>/cgi-bin/servizi_iride/post.cgi">
+                                    <input type="hidden" name="post_url" value="##serverPath/jsp/controller/login.jsp">
+                                    <input type="hidden" name="passphrase" value="<NOT_USED>">
+                                    <input type="hidden" name="USERID" value="">
+                                    <input type="hidden" name="UID" value="">
+                                    <input type="hidden" name="FUID" value="">
+                                    <input type="hidden" name="LUID" value="">
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td width="27%">Codice Utente</td>
+                                        <td width="73%"> <input name="username" type="text" class="testoCampi" size="20" maxlength="20">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td width="27%">Password</td>
+                                        <td width="73%"> <input name="password1" type="password" class="testoCampi" size="8" maxlength="8">
+                                             <input name="password" type="hidden">
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <table width="490" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><div align="center"><a href="javascript: checkUtente(document.login);"><img src="../layout/im/b_entra.gif" alt="entra" width="150" height="16" border="0"></a></div></td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <br>
+                                    <br>
+                                    <br>
+                                  </td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="www.ruparpiemonte.it"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

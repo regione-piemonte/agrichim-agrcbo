@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+
+<body text="#000000" onload="window.focus();" onunload="window.opener.focus()">
+<form name="form2" method="post" action="">
+  <table width="500" border="0" class="boxborder">
+    <tr>
+      <td>
+        <div align="center">
+          <h2>Stato della richiesta <br>
+          </h2>
+          @@EtichettaCampione
+          <table width="100%" border="0" cellspacing="4">
+            <tr>
+              <td width="29%"> <b>Numero della richiesta</b> </td>
+              <td width="71%"> $$idRichiesta</td>
+            </tr>
+            <tr>
+              <td> <b>Numero campione / Anno</b> </td>
+              <td> $$numAnno</td>
+            </tr>
+            <tr>
+              <td> <b>Materiale</b> </td>
+              <td> $$descMateriale</td>
+            </tr>
+            <tr>
+              <td> <b>Etichetta</b> </td>
+              <td> $$descrizioneEtichetta</td>
+            </tr>
+            <tr>
+              <td> <strong>Ragione sociale proprietario </strong></td>
+              <td>$$proprietario</td>
+            </tr>
+            <tr>
+              <td colspan="2" bgcolor="#F2F1EA"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+            </tr>
+            @@anomalia
+            <tr>
+              <td colspan="2"><b>ATTENZIONE</b>: la richiesta di analisi risulta
+                <b>$$anomalia</b> (vedere le note)</td>
+            </tr>
+            @@anomalia
+
+            <tr>
+              <td colspan="2"><img src="../layout/im/tra_pix.gif" width="2" height="4"></td>
+            </tr>
+            <tr>
+              <td colspan="2"><table width="100%" border="0" cellspacing="2" cellpadding="0">
+                  <tr>
+                    <td width="18%" bgcolor="#F2F1EA"> <div align="left"><strong>Data</strong></div></td>
+                    <td width="31%" bgcolor="#F2F1EA"> <div align="left"><strong>
+                        Azione</strong></div></td>
+                    <td width="51%" bgcolor="#F2F1EA"> <div align="left"><strong>
+                        Note</strong></div></td>
+                  </tr>
+                  @@tracciatura
+                  <tr valign="top">
+                    <td> <div align="left">$$data</div></td>
+                    <td>$$azione</td>
+                    <td>$$note</td>
+                  </tr>
+                  @@tracciatura
+                </table></td>
+            </tr>
+          </table>
+          @@EtichettaCampione
+          <br>
+          <table width="100%" border="0" align="center" cellpadding="0" cellspacing="5">
+            <tr>
+              <td align="right"><div align="center"><a href="javascript:window.close();"><img src="../layout/im/b_chiudi.gif" alt="chiudi" width="150" height="16" border="0"></a></div></td>
+            </tr>
+          </table>
+          <br>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

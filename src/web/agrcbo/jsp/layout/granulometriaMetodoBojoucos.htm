@@ -1,0 +1,578 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/isFloat.js"></script>
+<script src="../layout/js/dotCheck.js"></script>
+<script src="../layout/js/granulometriaMetodoBojoucos.js"></script>
+<script>
+function cancella()
+{
+  @@cancella
+  if (confirm('Il record verrà cancellato. Confermi?'))
+  {
+    granulometriaMetodoBojoucos.azione.value='delete';
+    granulometriaMetodoBojoucos.submit();
+  }
+  @@cancella
+  @@nonCancella
+  alert('Non è presente alcun record da cancellare');
+  @@nonCancella
+}
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup.gif" width="638" height="40" alt="RuparPiemonte"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" background="../layout/im/pix_verde_nuovo.gif">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim_nuovo.gif" alt="servizio agrichim" width="164" height="13" align="top">
+                      </td>
+                      <td height="1" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" background="../layout/im/pix_verde_nuovo.gif">
+                                    <div align="center"> <br>
+                                      <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td>
+                                            <p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente</strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaAnalisi.jsp" target="_nuova_"><img src="../layout/im/tit_sx_nuovaAnalisi_off.gif" alt="prenotazione nuova analisi" width="124" height="29" border="0"></a><br>
+                                      <br>
+                                      <table width="124" height="142" border="0" cellpadding="2" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                        <tr>
+                                          <td><table width="100%" height="169" border="0" cellpadding="4" cellspacing="1" background="../layout/im/tit_sx_campioni_on3.gif">
+                                              <tr>
+                                                <td>&nbsp;</td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF" class="testoTabellelungheVerdeON"><strong><a href="../controller/ricercaCampioni.jsp" class="testoTabellelungheVerdeON">Ricerca
+                                                  campione</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><strong><a href="../controller/analisiRichieste.jsp" class="testoTabellelungheVerdeON">Analisi
+                                                  richieste</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFE193"><strong><a href="../controller/campioniLaboratorio.jsp" class="testoTabellelungheVerdeON">Campioni
+                                                  in laboratorio</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF" class="testoTabellelungheVerde"><strong><a href="../controller/analisiTerminate.jsp" class="testoTabellelungheVerdeON">Referti
+                                                  da emettere</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><span class="testoTabellelungheVerde"><strong><a href="../controller/refertiEmessi.jsp" class="testoTabellelungheVerdeON">Referti
+                                                  emessi</a></strong></span> </td>
+                                              </tr>
+                                            </table></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../view/menuAnagrafiche.jsp"><img src="../layout/im/tit_sx_anagrafiche_off.gif" alt="anagrafiche" width="124" height="29" border="0"></a><br><br>
+                                      <a href="../view/ricercaPreventivi.jsp"><img src="../layout/im/tit_sx_gestionePreventivi_off.gif" alt="gestione preventivi" width="124" height="29" border="0"></a><br><br>
+                                      <br>
+                                      <a href="../view/menuTabelle.jsp"><img src="../layout/im/tit_sx_datisistema_off.gif" alt="dati di sistema" width="124" height="29" border="0"></a><br>
+<!--                                       <br> -->
+<!--                                       <a href="../view/utility.jsp"><img src="../layout/im/tit_sx_utilita_off.gif" alt="utilit&agrave;" width="124" height="29" border="0"></a> -->
+                                      <br>
+                                      <br>
+                                      <a href="../controller/logout.jsp"><img src="../layout/im/tit_sx_logoutN_off.gif" alt="logout" width="124" height="29" border="0"></a>
+                                    </div>
+
+
+
+                                  </td>
+                                  <td width="577" height="450" valign="top" bgcolor="#F2F1EA">
+                                    <h1>Esito delle analisi - Terreni <br>
+                                    </h1>
+                                    <table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr align="center" valign="top">
+                                        <td width="20%" class="pul">
+                                        <a href="#" onClick="pop('../report/anagraficaCampione##codiceMateriale.pdf?idRichiesta=##idRichiesta',647,480,'pdf');" class="pul">Scheda di accompagnamento</a></td>
+                                        <td width="20%" class="pul"><a href="../controller/analisiRichiesteExcel.jsp" class="pul">Elenco analisi richieste</a></td>
+                                        <td width="20%" class="pulselect">Inserisci esito analisi</td>
+                                        <td width="20%" class="pul"><a href="../view/annullaRichiestaCamp.jsp?idRichiestaSearch=##idRichiesta" class="pul">Annulla richiesta</a></td>
+                                        <td width="20%" class="pul"><a href="../view/esistoTerminato.jsp" class="pul">Conferma analisi</a></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td>Con questa funzione si inseriscono
+                                          i dati di risultato delle analisi per
+                                          i terreni. I dati sono suddivisi nelle
+                                          varie tipologie di dati omogenei. Inseriti
+                                          i dati di input, alla conferma vengono
+                                          calcolati e visualizzati i campi di
+                                          output.</td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td colspan="8"> <div align="center"><strong>Dati
+                                            identificativi del campione </strong></div></td>
+                                      </tr>
+                                      <tr>
+                                        <td width="33%"  rowspan="2">Anno / Numero
+                                          campione</td>
+                                        <td width="67%" colspan="5" rowspan="2">
+                                         <form name="selectIdRichiesta" method="post" action="../view/granulometriaMetodoBojoucos.jsp">
+                                          <select name="idRichiesta" class="testoCampi" onchange="submit();">
+                                            @@annoNumero
+                                              <option value="$$idRichiesta" $$selected>$$annoNumero</option>
+                                            @@annoNumero
+                                          </select> </td>
+                                         </form>
+                                      </tr>
+                                      <tr> </tr>
+                                    </table>
+                                    <table width="98%" border="0" align="center" cellpadding="1" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                      <tr>
+                                        <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="2" bgcolor="#FFFFFF" class="testoTabellelunghe">
+                                            <tr class="testoTabellelunghe">
+                                              <td width="25%" bgcolor="#F2F1EA" class="testoTabellelunghe"><b></b><b>Numero
+                                                richiesta</b></td>
+                                              <td width="25%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Materiale
+                                                /Matrice</b></td>
+                                              <td width="13%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe">
+                                                <b>Etichetta</b><b></b></td>
+                                              <td width="25%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Laboratorio
+                                                di analisi</b></td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="7" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                            </tr>
+                                           @@etichetta
+                                            <tr valign="top">
+                                              <td class="testoTabellelunghe">
+                                                $$idRichiesta</td>
+                                              <td class="testoTabellelunghe">$$descMateriale</td>
+                                              <td class="testoTabellelunghe">$$etichetta</td>
+                                              <td class="testoTabellelunghe">$$labAnalisi</td>
+                                            </tr>
+                                           @@etichetta
+                                          </table></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <CENTER>
+<TABLE WIDTH="550" border="0" cellspacing="0" cellpadding="0" BGCOLOR="#F2F1EA">
+<TR>
+  <TD width="65" valign="bottom">&nbsp;</TD>
+  <TD width="90" valign="bottom"><a class="##coloreTitoloGRANAUTOMATICO" @@hrefGRANAUTOMATICO href="../view/granulometriaMetodoAutomatico.jsp" @@hrefGRANAUTOMATICO>granulometria<br>metodo<br>automatico</a></TD>
+  <TD width="90" valign="bottom"><a class="##coloreTitoloREAZIONESUOLO" @@hrefREAZIONESUOLO href="../view/reazioneSuolo.jsp" @@hrefREAZIONESUOLO>reazione<br>del suolo</a></TD>
+  <TD width="90" valign="bottom"><a class="##coloreTitoloSOSTANZAORGANICA" @@hrefSOSTANZAORGANICA href="../view/sostanzaOrganica.jsp" @@hrefSOSTANZAORGANICA>sostanza<br>organica</a></TD>
+  <TD width="90" valign="bottom"><a class="##coloreTitoloCOMPLESSOSCAMBIO" @@hrefCOMPLESSOSCAMBIO href="../view/complessoScambio.jsp" @@hrefCOMPLESSOSCAMBIO>complesso<br>di scambio</a></TD>
+  <TD width="62" valign="bottom"><a class="##coloreTitoloMICROELEMENTI" @@hrefMICROELEMENTI href="../view/microelementi.jsp" @@hrefMICROELEMENTI>microelementi</a></TD>
+  <TD width="62" valign="bottom" align="right"><a class="##coloreTitoloMETALLIPESANTI" @@hrefMETALLIPESANTI href="../view/metalliPesanti.jsp" @@hrefMETALLIPESANTI>metalli<br>pesanti</a></TD>
+</TR>
+</TABLE>
+<TABLE WIDTH="550" border="0" cellspacing="0" cellpadding="0" BGCOLOR="#F2F1EA">
+<TR><TD><IMG SRC="../layout/im/menu_barra.gif" WIDTH="550" HEIGHT="23"></TD></TR>
+</TABLE>
+<TABLE WIDTH="550" border="0" cellspacing="0" cellpadding="0" BGCOLOR="#F2F1EA">
+<TR>
+  <TD width="20" valign="top">&nbsp;</TD>
+  <TD width="90" valign="top"><a class="##coloreTitoloUMIDITA" @@hrefUMIDITA href="../view/umidita.jsp" @@hrefUMIDITA>umidit&agrave; del<br>campione</a></TD>
+  <TD width="90" valign="top"><a class="fuoco">granulometria<br>metodo<br>Bojoucos</a></TD>
+  <TD width="90" valign="top"><a class="##coloreTitoloCALCIMETRIA" @@hrefCALCIMETRIA href="../view/calcimetria.jsp" @@hrefCALCIMETRIA>calcimetria</a></TD>
+  <TD width="90" valign="top"><a class="##coloreTitoloAZOTO" @@hrefAZOTO href="../view/azoto.jsp" @@hrefAZOTO>azoto</a></TD>
+  <TD width="90" valign="top"><a class="##coloreTitoloFOSFOROOLSEN" @@hrefFOSFOROOLSEN href="../view/fosforoOLSEN.jsp" @@hrefFOSFOROOLSEN>fosforo<br>OLSEN</a></TD>
+  <TD width="80" valign="top"><a class="##coloreTitoloCONDUCIBILITASALINITA" @@hrefCONDUCIBILITASALINITA href="../view/conducibilitaSalinita.jsp" @@hrefCONDUCIBILITASALINITA>conducibilit&agrave;<br>o salinit&agrave;</a></TD>
+</TR>
+</TABLE>
+</CENTER>
+                                    <br>
+                                    @@nessuno
+                                       <br>
+                                       <br>
+                                       <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                        <tr>
+                                           <td class="testoTabellelunghe" align="center"><b>Non è stata richiesta nessuna "Analisi fisico meccanica" per questo campione.</b></td>
+                                        </tr>
+                                       </table>
+                                     @@nessuno
+                                     @@errore
+                                      <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+                                        non sono stati inseriti correttamente
+                                          <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      </table>
+                                      @@errore
+                                      @@modifica
+                                      <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td class="testoOK">Dati registrati correttamente
+                                          <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      </table>
+                                      @@modifica
+
+                                    @@analisi
+                                    <form name="granulometriaMetodoBojoucos" method="post" action="../controller/granulometriaMetodoBojoucos.jsp">
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <input type="hidden" name="azione" value="##azione">
+                                      <input type="hidden" name="idRichiesta" value="##idRichiestaCorrente">
+                                      <tr>
+                                        <td width="33%" class="testoTabellelunghe">Lettura
+                                          densità a 1'15''</td>
+                                        <td width="17%"><input name="letturaDensita115" type="text" value="##letturaDensita115" class="testoCampi" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore1</td>
+                                        <td width="33%"> <div align="right" class="testoTabellelunghe">Lettura
+                                            densità a 1'30''</div></td>
+                                        <td width="17%"><input name="letturaDensita130" type="text" value="##letturaDensita130" class="testoCampi" size="10" maxlength="10" onBlur="value=dotCheck(value)">##errore2</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe">Lettura
+                                          densità a 1'45''</td>
+                                        <td><input name="letturaDensita145" type="text" class="testoCampi" value="##letturaDensita145" size="10" maxlength="10" onBlur="value=dotCheck(value)">##errore3</td>
+                                        <td><div align="right"></div></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe">Densità
+                                          soluzione di fondo 1</td>
+                                        <td> <input name="densitaSoluzFondo1" type="text" value="##densitaSoluzFondo1" class="testoCampi" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore4</td>
+                                        <td> <div align="right" class="testoTabellelunghe">Temperatura
+                                            1 in &deg;C</div></td>
+                                        <td> <input name="temperatura1" type="text" value="##temperatura1" class="testoCampi" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore5</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe">Fattore
+                                          temperatura granulare 1</td>
+                                        <td><input name="fattoreTempGranulare1" type="text" value="##fattoreTempGranulare1" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10"></td>
+                                        <td><div align="right"></div></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >DIAMETRO
+                                          m c part sosp 1'15"</td>
+                                        <td> <input name="diametro115" type="text" value="##diametro115" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td > <div align="right" class="testoTabellelunghe">DIAMETRO
+                                            m c part sosp 1'30"</div></td>
+                                        <td> <input name="diametro130" type="text" value="##diametro130" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >DIAMETRO
+                                          m c part sosp 1'45"</td>
+                                        <td> <input name="diametro145" type="text" value="##diametro145" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td><div align="right"></div></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Densità
+                                          lorda calcolata 50 micron 1-2</td>
+                                        <td> <input name="densitaLorda5012" type="text" value="##densitaLorda5012" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td > <div align="right" class="testoTabellelunghe">Densità
+                                            lorda calcolata 50 micron 1-3</div></td>
+                                        <td> <input name="densitaLorda5013" type="text" value="##densitaLorda5013" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Densità
+                                          lorda calcolata 50 micron 2-3</td>
+                                        <td> <input name="densitaLorda5023" type="text" value="##densitaLorda5023" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td > <div align="right" class="testoTabellelunghe">Densità
+                                            lorda calcolata a 50 micron</div></td>
+                                        <td> <input name="densitaLorda50" type="text" value="##densitaLorda50" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Sabbia</td>
+                                        <td> <input name="sabbia" type="text" value="##sabbia" disabled class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="8" maxlength="8">
+                                        </td>
+                                        <td><div align="right"></div></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td height="38" class="testoTabellelunghe">Lettura
+                                          densità a 9'30"</td>
+                                        <td height="38"> <input name="letturaDensita930" type="text" value="##letturaDensita930" class="testoCampi" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore6</td>
+                                        <td height="38"> <div align="right" class="testoTabellelunghe">Lettura
+                                            densità a 10'</div></td>
+                                        <td height="38"> <input name="letturaDensita10" type="text" value="##letturaDensita10" class="testoCampi" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore7</td>
+                                      </tr>
+                                      <tr>
+                                        <td height="38" class="testoTabellelunghe">Lettura
+                                          densità a 10'45"</td>
+                                        <td height="38"> <input name="letturaDensita1045" type="text" value="##letturaDensita1045" class="testoCampi" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore8</td>
+                                        <td><div align="right"></div></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe">Densità
+                                          soluzione di fondo 2</td>
+                                        <td> <input name="densitaSoluzFondo2" type="text" value="##densitaSoluzFondo2" class="testoCampi" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore9</td>
+                                        <td> <div align="right" class="testoTabellelunghe">Temperatura
+                                            2 in &deg;C</div></td>
+                                        <td> <input name="temperatura2" type="text" class="testoCampi" value="##temperatura2" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore10</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Fattore
+                                          temperatura granulare 2</td>
+                                        <td> <input name="fattoreTempGranulare2" type="text" disabled value="##fattoreTempGranulare2" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td><div align="right"></div></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >DIAMETRO
+                                          m c part sosp 9'30"</td>
+                                        <td> <input name="diametro930" type="text" disabled value="##diametro930" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td > <div align="right" class="testoTabellelunghe">DIAMETRO
+                                            m c part sosp 10'</div></td>
+                                        <td> <input name="diametro10" type="text" disabled value="##diametro10" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >DIAMETRO
+                                          m c part sosp 10'45"</td>
+                                        <td> <input name="diametro1045" type="text" disabled value="##diametro1045" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td><div align="right"></div></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Densità
+                                          lorda calcolata 20 micron 4-5</td>
+                                        <td> <input name="densitaLorda2045" type="text" disabled value="##densitaLorda2045" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td > <div align="right" class="testoTabellelunghe">Densità
+                                            lorda calcolata 20 micron 4-6</div></td>
+                                        <td> <input name="densitaLorda2046" type="text" disabled value="##densitaLorda2046" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Densità
+                                          lorda calcolata 20 micron 5-6</td>
+                                        <td> <input name="densitaLorda2056" type="text" disabled value="##densitaLorda2056" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td > <div align="right" class="testoTabellelunghe">Densità
+                                            lorda calcolata a 20 micron</div></td>
+                                        <td> <input name="densitaLorda20" type="text" disabled value="##densitaLorda20" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Limo grosso</td>
+                                        <td> <input name="limoGrosso" type="text" disabled value="##limoGrosso" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="8" maxlength="8">
+                                        </td>
+                                        <td><div align="right"></div></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe">Lettura
+                                          densità a 17 h</td>
+                                        <td> <input name="letturaDensita17" type="text" class="testoCampi" value="##letturaDensita17" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore11</td>
+                                        <td> <div align="right" class="testoTabellelunghe">Lettura
+                                            densità a 18 h 30'</div></td>
+                                        <td> <input name="letturaDensita1830" type="text" class="testoCampi" value="##letturaDensita1830" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore12</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe">Lettura
+                                          densità a 20 h</td>
+                                        <td> <input name="letturaDensita20" type="text" class="testoCampi" value="##letturaDensita20" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore13</td>
+                                        <td> <div align="right" class="testoTabellelunghe">Densità
+                                            bianco a 17 h</div></td>
+                                        <td> <input name="densitaBianco17" type="text" class="testoCampi" value="##densitaBianco17" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore14</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe">Densità
+                                          bianco a 18 h 30'</td>
+                                        <td> <input name="densitaBianco1830" type="text" class="testoCampi" value="##densitaBianco1830" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore15</td>
+                                        <td> <div align="right" class="testoTabellelunghe">Densità
+                                            bianco a 20 h</div></td>
+                                        <td> <input name="densitaBianco20" type="text" class="testoCampi" value="##densitaBianco20" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore16</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Densità
+                                          media bianco 3</td>
+                                        <td> <input name="densitaMediaBianco3" type="text" disabled value="##densitaMediaBianco3" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td><div align="right"></div></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe">Temperatura
+                                          a 17 h in &deg;C</td>
+                                        <td> <input name="temperatura17" type="text" class="testoCampi" value="##temperatura17" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore17</td>
+                                        <td> <div align="right" class="testoTabellelunghe">Temperatura
+                                            a 18 h 30' in &deg;C</div></td>
+                                        <td> <input name="temperatura1830" type="text" class="testoCampi" value="##temperatura1830" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore18</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe">Temperatura
+                                          a 20 h in &deg;C</td>
+                                        <td> <input name="temperatura20" type="text" class="testoCampi" value="##temperatura20" size="10" maxlength="10" onBlur="value=dotCheck(value)">
+                                        ##errore19</td>
+                                        <td > <div align="right" class="testoTabellelunghe">Temperatura
+                                            media 3 in &deg;C</div></td>
+                                        <td> <input name="temperaturaMedia3" type="text" disabled value="##temperaturaMedia3" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Fattore
+                                          temperatura granulare 3</td>
+                                        <td> <input name="fattoreTempGranulare3" type="text" disabled value="##fattoreTempGranulare3" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td><div align="right"></div></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >DIAMETRO
+                                          m c part sosp 17 h</td>
+                                        <td> <input name="diametro17" type="text" disabled value="##diametro17" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td > <div align="right" class="testoTabellelunghe">DIAMETRO
+                                            m c part sosp 18 h 30'</div></td>
+                                        <td> <input name="diametro1830" type="text" disabled value="##diametro1830" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >DIAMETRO
+                                          m c part sosp 20 h</td>
+                                        <td> <input name="diametro20" type="text" disabled value="##diametro20" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td><div align="right"></div></td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Densità
+                                          lorda calcolata 2 micron 7-8</td>
+                                        <td> <input name="densitaLorda278" type="text" disabled value="##densitaLorda278" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td > <div align="right" class="testoTabellelunghe">Densità
+                                            lorda calcolata 2 micron 7-9</div></td>
+                                        <td> <input name="densitaLorda279" type="text" disabled value="##densitaLorda279" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Densità
+                                          lorda calcolata 2 micron 8-9</td>
+                                        <td> <input name="densitaLorda289" type="text" disabled value="##densitaLorda289" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                        <td > <div align="right" class="testoTabellelunghe">Densità
+                                            lorda calcolata a 2 micron</div></td>
+                                        <td> <input name="densitaLorda2" type="text" disabled value="##densitaLorda2" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="10" maxlength="10">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Limo fine</td>
+                                        <td> <input name="limoFine" type="text" disabled value="##limoFine" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="8" maxlength="8">
+                                        </td>
+                                        <td > <div align="right" class="testoTabellelunghe">Argilla
+                                            1</div></td>
+                                        <td> <input name="argilla1" type="text" disabled value="##argilla1" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="8" maxlength="8">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="testoTabellelunghe" >Limo</td>
+                                        <td> <input name="limo" type="text" disabled value="##limo" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="8" maxlength="8">
+                                        </td>
+                                        <td > <div align="right" class="testoTabellelunghe">Argilla
+                                            2</div></td>
+                                        <td> <input name="argilla2" type="text" disabled value="##argilla2" class="testoCampi" style="BACKGROUND-COLOR: #F0F0EF; COLOR: #000000" size="8" maxlength="8">
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    </form>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="5">
+                                      <tr>
+                                        <td><div align="right"><a href="javascript:if (salva(granulometriaMetodoBojoucos)) granulometriaMetodoBojoucos.submit();"><img src="../layout/im/b_conferma.gif" alt="conferma" border="0" width="150" height="16"></a></div></td>
+                                        <td><a href="javascript:cancella();"><img src="../layout/im/b_elimina.gif" alt="elimina" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                    </table>
+                                    @@analisi
+                                    <p>&nbsp;</p></td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="www.ruparpiemonte.it"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

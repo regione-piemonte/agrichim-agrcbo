@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+
+<script type="text/javascript">
+function confermaIUV()
+{
+	var inputElements = document.getElementsByName('radiobutton');
+	var count=0;
+	var checkedValue = "";
+	for(var i=0; inputElements[i]; ++i){
+	    if(inputElements[i].checked){
+	         checkedValue += inputElements[i].value;  
+	         count++;
+	    }
+	}
+	if (count==0) {
+		alert("Selezionare almeno uno IUV");
+		return -1;
+	}
+	if (count>1) {
+		alert("Selezionare solo uno IUV");
+		return -1;
+	  }
+	
+	document.forms[0].funzione.value ='confermaiuv';
+	document.forms[0].iuvSelezionato.value=checkedValue;
+	document.forms[0].submit();
+}
+
+</script>
+
+<body text="#000000" onload="window.focus();" onunload="window.opener.focus();window.opener.location.reload();">
+
+
+<form name="form2" method="post" action="">
+  <table width="500" border="0" class="boxborder">
+    <tr>
+      <td>
+        <div align="center">
+          <h2>$$msgesito <br>
+          </h2>
+          
+          <input type="hidden" name="idRichiesta" value="$$idRichiesta" />
+          <input type="hidden" name="funzione"  />
+          <input type="hidden" name="iuvSelezionato"  />
+          <table style="margin-top:2em" width="100%" border="0" cellspacing="4">
+	          @@RigaIUV
+	          <tr>
+	              <td width="5%"> <input type="radio" name="radiobutton" value="$$iuv_id" /> </td>
+	              <td width="95%"> $$iuv</td>
+	            </tr>
+	          @@RigaIUV
+          </table>
+          <br>
+          <table width="100%" border="0" align="center" cellpadding="0" cellspacing="5">
+            <tr>
+              <td align="right"><div align="center"><a href="javascript:window.opener.location.reload(true);window.close();"><img src="../layout/im/b_chiudi.gif" alt="chiudi" width="150" height="16" border="0"></a></div></td>
+              @@tastoConferma
+              <td align="right"><div align="center"><a href="javascript:confermaIUV();"><img src="../layout/im/b_conferma.gif" alt="conferma iuv" width="150" height="16" border="0"></a></div></td>
+              @@tastoConferma
+            </tr>
+          </table>
+          <br>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

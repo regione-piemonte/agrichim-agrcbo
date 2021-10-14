@@ -1,0 +1,386 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/filtriRicBreveAnaRichieste.js"></script>
+
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" @@multiploErrore onload="erroreMultiplo();"  @@multiploErrore>
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup.gif" width="638" height="40" alt="RuparPiemonte"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" background="../layout/im/pix_verde_nuovo.gif">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim_nuovo.gif" alt="servizio agrichim" width="164" height="13" align="top">
+                      </td>
+                      <td height="1" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" background="../layout/im/pix_verde_nuovo.gif">
+                                    <div align="center"> <br>
+                                      <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td>
+                                            <p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente</strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaAnalisi.jsp" target="_nuova_"><img src="../layout/im/tit_sx_nuovaAnalisi_off.gif" alt="prenotazione nuova analisi" width="124" height="29" border="0"></a><br>
+                                      <br>
+                                      <table width="124" height="142" border="0" cellpadding="2" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                        <tr>
+                                          <td><table width="100%" height="169" border="0" cellpadding="4" cellspacing="1" background="../layout/im/tit_sx_campioni_on3.gif">
+                                              <tr>
+                                                <td>&nbsp;</td>
+                                              </tr>
+                                              <tr bgcolor="#FFFFFF">
+                                                <td bgcolor="#FFFFFF"><strong><span class="testoTabellelungheVerde"><a href="../controller/ricercaCampioni.jsp" class="testoTabellelungheVerdeON">Ricerca
+                                                  campione</a></span></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFE193" class="testoTabellelungheVerdeON"><strong>Analisi
+                                                  richieste</strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF" class="testoTabellelungheVerde"><strong><a href="../controller/campioniLaboratorio.jsp" class="testoTabellelungheVerdeON">Campioni
+                                                  in laboratorio</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF" class="testoTabellelungheVerde"><strong><a href="../controller/analisiTerminate.jsp" class="testoTabellelungheVerdeON">Referti
+                                                  da emettere</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><span class="testoTabellelungheVerde"><strong><a href="../controller/refertiEmessi.jsp" class="testoTabellelungheVerdeON">Referti
+                                                  emessi</a></strong></span> </td>
+                                              </tr>
+                                            </table></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../view/menuAnagrafiche.jsp"><img src="../layout/im/tit_sx_anagrafiche_off.gif" alt="anagrafiche" width="124" height="29" border="0"></a><br><br>
+                                      <a href="../view/ricercaPreventivi.jsp"><img src="../layout/im/tit_sx_gestionePreventivi_off.gif" alt="gestione preventivi" width="124" height="29" border="0"></a><br><br>
+                                      <br>
+                                      <a href="../view/menuTabelle.jsp"><img src="../layout/im/tit_sx_datisistema_off.gif" alt="dati di sistema" width="124" height="29" border="0"></a><br>
+<!--                                       <br> -->
+<!--                                       <a href="../view/utility.jsp"><img src="../layout/im/tit_sx_utilita_off.gif" alt="utilit&agrave;" width="124" height="29" border="0"></a> -->
+                                      <br>
+                                      <br>
+                                      <a href="../controller/logout.jsp"><img src="../layout/im/tit_sx_logoutN_off.gif" alt="logout" width="124" height="29" border="0"><br>
+                                      <br>
+                                      </a> </div>
+
+
+
+                                  </td>
+                                  <td width="577" height="450" valign="top" bgcolor="#F2F1EA">
+                                    <h1>Campioni - analisi richieste<br>
+                                      <br>
+                                    </h1>
+                                    <table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr align="center" valign="top">
+                                        <td width="20%" class="pul"><a class="pul_pag" href="#" onclick="javascript:if (typeof ricercaCampioni!='undefined') controllaCheckBox(ricercaCampioni,null,'../report/anagraficaCampione',true);">Scheda di accompagnamento</a></td>
+                                        <td width="18%" class="pul"><a class="pul_pag" href="#" onclick="javascript:if (typeof ricercaCampioni!='undefined') controllaCheckBox(ricercaCampioni,null,'../view/identificazioneCampione.jsp',false);" style="cursor:hand">Modifica dati del campione</a></td>
+                                        <td width="15%" class="pul"><a class="pul_pag" href="#" onclick="javascript:if (typeof ricercaCampioni!='undefined') controllaCheckBox(ricercaCampioni,'annulla','../view/annullaRichiesta.jsp', false);">Annulla richiesta</a></td>
+                                        <td width="15%" class="pul"><a class="pul_pag" href="#" onclick="javascript:if (typeof ricercaCampioni!='undefined') controllaCheckBox(ricercaCampioni,'multiplo','../controller/accettazioneScarto.jsp',false);" style="cursor:hand">Accettazione Scarto</a></td>
+                                        <td width="15%" class="pul"><a class="pul_pag" href="#" onclick="javascript:if (typeof ricercaCampioni!='undefined') controllaCheckBox(ricercaCampioni,'aggiorna','../controller/verificaPagamento.jsp',false);" style="cursor:hand">Verifica il Pagamento</a></td>
+                                        <td width="20%" class="pul"><a class="pul_pag" href="#" onclick="javascript:if (typeof ricercaCampioni!='undefined') controllaCheckBox(ricercaCampioni,'scarica','',false);" style="cursor:hand">Scarica la ricevuta</a></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <br>
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td width="27%"><p>In quest'area sono gestiti i campioni che si trovano nello
+                                            stato &quot;Analisi
+                                            richiesta&quot;. <br>
+                                            Impostare il numero di richiesta.</p>
+                                          </td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <br>
+                                    <table width="98%" border="0" align="center">
+                                     <form name="ricerca" method="post" action="../controller/analisiRichiestePOP.jsp?breve=si">
+                                      <tr>
+                                        <td width="49%"  rowspan="3"><div align="right">Numero
+                                            della richiesta</div></td>
+                                        <td width="51%" colspan="2" rowspan="3">
+                                          <input name="idRichiestaDa" type="text" class="testoCampi" size="9" maxlength="9">
+                                        </td>
+                                      </tr>
+                                      <tr> </tr>
+                                      <tr> </tr>
+                                     </form>
+                                    </table>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td><div align="center"><a href="javascript: if (!ricercaElenco(ricerca))  pop('../view/analisiRichiestePOP.jsp',700,500);"><img src="../layout/im/b_ricerca.gif" alt="ricerca" width="150" height="16" border="0"></a></div></td>
+                                      </tr>
+                                    </table>
+                                    <br> <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td colspan="6" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    @@elencoCampioniNo
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td width="27%" align="center"><h2>Non &egrave; stato trovato nessun campione</h2></td>
+                                      </tr>
+                                    </table>
+                                    @@elencoCampioniNo
+                                    @@elencoCampioni
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                          <td align="left" class="paginazione">Numero record
+                                           trovati: $$num</td>
+                                          <td align="right" class="paginazione">$$pagine&nbsp;</td>
+                                       </tr>
+                                    </table>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="1" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                      <tr>
+                                        <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="2" bgcolor="#FFFFFF" class="testoTabellelunghe">
+                                            <tr class="testoTabellelunghe">
+                                              <td width="3%" bgcolor="#F2F1EA"><b></b></td>
+                                              <td width="10%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>N.<br>
+                                                Rich.</b></td>
+                                              <td width="16%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Stato Pagamento</b></td>
+                                              <td width="15%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Descrizione
+                                                etichetta</b></td>
+                                              <td width="15%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Proprietario</b></td>
+                                              <td width="25%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Richiedente</b></td>
+                                              <td width="16%" valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Note</b></td>
+                                            </tr>
+											                      <tr>
+                                              <td colspan="8" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <form name="ricercaCampioni" method="post" action="">
+                                            <input type="hidden" name="idRichiestaSearch" value="-1">
+                                            <input type="hidden" name="idRichiesta" value="-1">
+                                            @@elencoCampioneBody
+                                            <tr valign="center">
+                                              <td>
+                                                <input type="hidden" name="codMateriali$$idRichiesta" value="$$codiceMateriale">
+                                                <input type="hidden" name="iuv$$idRichiesta" value="$$iuv">
+                                                <input type="hidden" name="tipo_pagamento$$idRichiesta" value="$$tipo_pagamento">
+                                                <input type="hidden" name="pagamento$$idRichiesta" value="$$pagamento">
+                                                <input type="checkbox" name="checkbox$$idCheck" value="$$idRichiesta" $$checked></td>
+                                              <td class="testoTabellelunghe">$$idRichiestaVista</td>
+<!--                                               <td class="testoTabellelunghe">$$descMateriale</td> -->
+                                              <td class="testoTabellelunghe">$$descStatoPagamento</td>
+                                              <td class="testoTabellelunghe">$$descrizioneEtichetta</td>
+                                              <td class="testoTabellelunghe">$$proprietario</td>
+                                              <td class="testoTabellelunghe">$$richiedente</td>
+                                              <td class="testoTabellelunghe">$$note</td>
+                                            </tr>
+                                            @@elencoCampioneBody
+                                            </form>
+                                          </table></td>
+                                      </tr>
+                                    </table>
+                                    <table width="98%" border="0" align="center">
+                                        <td>La selezione multipla
+                                            pu&ograve; essere effettuata solo
+                                            si si sceglie la funzione di &quot;Accettazione/Scarto&quot;
+                                            e i campioni non devono essere &quot;Bloccati&quot;
+                                            a causa di qualche anomalia.</td>
+                                       </table>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        @@indietro
+                                          <form name="Lista1" method="post" action="../view/analisiRichieste.jsp">
+                                            <input type="hidden" name="attuale" value="$$attuale">
+                                            <td width="20%" class="pulsante"><a href="javascript:Lista1.submit();" class="pulsante">Pagina
+                                              indietro</a></td>
+                                          </form>
+                                        @@indietro
+                                        @@nonIndietro
+                                              <td width="20%" class="pulsante">&nbsp;$$nonIndietro</td>
+                                        @@nonIndietro
+                                        <td width="20%"> <div align="center"><a href="javascript:selezionaCheckBox(ricercaCampioni);" class="pulsante">Seleziona
+                                            tutti</a></div></td>
+                                            
+                                         <td width="20%"> <div align="center"><a href="javascript:deSelezionaCheckBox(ricercaCampioni);" class="pulsante">Deseleziona
+                                           tutti</a></div></td>
+                                            
+                                        @@avanti
+                                          <form name="Lista2" method="post" action="../view/analisiRichieste.jsp">
+                                            <input type="hidden" name="attuale" value="$$attuale">
+                                            <td width="20%"><div align="right"><a href="javascript:Lista2.submit();" class="pulsante">Pagina
+                                            avanti</a></div></td>
+                                          </form>
+                                        @@avanti
+                                        @@nonAvanti
+                                              <td width="20%" class="pulsante">&nbsp;$$nonAvanti</td>
+                                        @@nonAvanti
+                                      </tr>
+                                    </table>
+                                    <p>&nbsp;</p></td>
+                                </tr>
+                                @@elencoCampioni
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="www.ruparpiemonte.it"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+<script>
+
+function controllaCheckBox(form,modo,percorso,isPdf){
+  var valore="",indice=0;
+  var codiceMateriale='';
+  var idRichiesta="";
+  @@ricercaJavascript
+
+    if (typeof form.checkbox$$idCheck!="undefined")
+       if (form.checkbox$$idCheck.checked){
+        indice++;
+        valore+=form.checkbox$$idCheck.value+",";
+       }
+  @@ricercaJavascript
+
+    if (indice==0){
+      alert("Selezionare almeno una richiesta di analisi");
+      return -1;
+    }
+
+    if (modo==null){
+      if (indice>1){
+          alert("Selezionare solo una richiesta di analisi");
+          return -1;
+      }
+    }else if(modo=='aggiorna' || modo=='scarica'){
+        if (indice>1){
+            alert("Selezionare solo una richiesta di analisi");
+            return -1;
+        }
+    }
+    valore=valore.substring(0,valore.length-1);
+    if(valore.indexOf("A")!=-1){
+        am = valore.substring(0,valore.length-1);
+        idRichiesta = am;
+    }else
+    	idRichiesta = valore;
+    if(modo=='aggiorna' || modo=='scarica'){
+        iuv = eval('form.iuv'+valore+'.value');
+        tipo_pagamento = eval('form.tipo_pagamento'+valore+'.value');
+        stato_pagamento = eval('form.pagamento'+valore+'.value');
+        if(iuv!=null && iuv!=""){
+            if(modo=='scarica'){
+                if(tipo_pagamento=="M1" && stato_pagamento=='N'){
+                    alert("Il pagamento on line e' in attesa, non e' ancora pervenuto; utilizza la funzione Verifica il Pagamento per aggiornare lo stato del pagamento");
+                    return null;
+                }else if(tipo_pagamento=="M3" && stato_pagamento=='N'){
+                    alert("Esiste un avviso di pagamento da pagare, devono ristamparlo e pagare con i canali di PagoPA oppure annullarlo");
+                    return null;
+                }else{
+                    pop('../report/avvisoPagamento.pdf?tipoPagamento='+tipo_pagamento+'&tipoDocumento=RT&idRichiesta='+valore,647,480,'pdf');
+                }
+            }if(modo=='aggiorna'){
+                if(stato_pagamento=='S'){
+                    alert("Il pagamento e' stato ricevuto - si puo' accettare il campione");
+                    return null;
+                }else{
+                    form.action=percorso;
+                    form.idRichiestaSearch.value=idRichiesta;
+                    form.submit();
+                }
+            }
+        }else{
+             alert("Per questa richiesta non e' stato generato lo IUV, devono usare la funziona Paga");
+             return null;
+        }
+    }else if(modo=='annulla'){
+    	stato_pagamento = eval('form.pagamento'+valore+'.value');
+    	if(stato_pagamento=='S')
+        	alert("ATTENZIONE: la richiesta e' stata pagata e contabilizzata, l'annullamento comporta delle operazioni in contabilita'");
+    	form.action=percorso;
+        form.idRichiestaSearch.value=idRichiesta;
+        form.submit();
+    }else if (isPdf){
+      codiceMateriale=eval('form.codMateriali'+valore+'.value');
+      pop(percorso+codiceMateriale+".pdf?idRichiesta="+idRichiesta,647,480,'pdf');
+    }else{
+      form.action=percorso;
+      form.idRichiestaSearch.value=idRichiesta;
+      form.submit();
+    }
+}
+
+function selezionaCheckBox(form){
+  @@ricercaJavascript
+    form.checkbox$$idCheck.checked=true;
+  @@ricercaJavascript
+}
+
+function deSelezionaCheckBox(form){
+  @@ricercaJavascript
+    form.checkbox$$idCheck.checked=false;
+  @@ricercaJavascript
+}
+
+function erroreMultiplo(){
+  alert('La selezione multipla è consentita solo su campioni appartenenti allo stesso utente, senza anomalie, con lo stesso laboratorio di consegna, stesso codice avviso e uguale stato di pagamento');
+}
+@@avvisoControlli
+//questo alert serve solo nel caso in cui si ritorni da verificaPagamento.jsp
+//con qualche alert da mostrare all'utente. Il giro è un po' contorto ma ahimé non ho avuto altre idee
+alert("$$alertAvvisoControlli");
+@@avvisoControlli
+</script>
+</html>

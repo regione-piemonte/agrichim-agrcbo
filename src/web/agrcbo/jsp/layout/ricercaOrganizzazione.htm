@@ -1,0 +1,269 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/filtriRicercaOrganizzazione.js"></script>
+<script>
+@@elencoSi
+var idOrganizzazioneSelected=$$idOrganizzazionePrimo;
+@@elencoSi
+
+function cancella()
+{
+   if (confirm('L\'organizzazione verrà cancellata. Confermi?'))
+   {
+     popGes('../controller/deleteOrganizzazione.jsp',organizzazione,'canc');
+   }
+}
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup.gif" width="638" height="40" alt="RuparPiemonte"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" background="../layout/im/pix_verde_nuovo.gif">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim_nuovo.gif" alt="servizio agrichim" width="164" height="13" align="top">
+                      </td>
+                      <td height="1" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" background="../layout/im/pix_verde_nuovo.gif">
+                                    <div align="center"> <br>
+                                      <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td> <p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente</strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaAnalisi.jsp" target="_nuova_"><img src="../layout/im/tit_sx_nuovaAnalisi_off.gif" alt="prenotazione nuova analisi" width="124" height="29" border="0"></a><br>
+                                      <br>
+                                      <a href="../view/menuCampioni.jsp"><img src="../layout/im/tit_sx_campioni_off.gif" alt="campioni" width="124" height="29" border="0"></a>
+                                      <br>
+                                      <br>
+                                      <table width="124" border="0" cellpadding="2" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                        <tr>
+                                          <td><table width="100%" border="0" cellpadding="4" cellspacing="1" background="../layout/im/anagrafiche.gif">
+                                              <tr>
+                                                <td>&nbsp;</td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFE193" class="testoTabellelungheVerdeON"><strong>Ricerca
+                                                  organizzazione</strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><strong><a href="../controller/ricercaAnagrafica.jsp" class="testoTabellelungheVerdeON">Ricerca
+                                                  anagrafica clienti e utenti</a></strong></td>
+                                              </tr>
+                                            </table></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../view/ricercaPreventivi.jsp"><img src="../layout/im/tit_sx_gestionePreventivi_off.gif" alt="gestione preventivi" width="124" height="29" border="0"></a><br><br>
+                                      <a href="../view/menuTabelle.jsp"><img src="../layout/im/tit_sx_datisistema_off.gif" alt="dati di sistema" width="124" height="29" border="0"></a><br>
+<!--                                       <br> -->
+<!--                                       <a href="../view/utility.jsp"><img src="../layout/im/tit_sx_utilita_off.gif" alt="utilit&agrave;" width="124" height="29" border="0"></a> -->
+                                      <br>
+                                      <br>
+                                      <a href="../controller/logout.jsp"><img src="../layout/im/tit_sx_logoutN_off.gif" alt="logout" width="124" height="29" border="0"><br>
+                                      <br>
+                                      </a> </div></td>
+                                  <td width="577" height="450" valign="top" bgcolor="#F2F1EA">
+                                    <h1> Impostazioni delle chiavi di ricerca
+                                      della organizzazione<br>
+                                      <br>
+                                    </h1>
+                                   <form name="ricerca" method="post" action="../controller/ricercaOrganizzazioneSearch.jsp">
+                                    <table width="98%" border="0" align="center" cellspacing="3">
+                                      <tr>
+                                        <td  width="26%">Tipo organizzazione </td>
+                                        <td width="74%">
+                                          <select name="tipoOrganizzazione" class="testoCampi">
+                                            <option value="-1" selected>----------</option>
+                                              @@tipoOrganizzazione
+                                                <option value="$$cod" $$selected>$$desc</option>
+                                              @@tipoOrganizzazione
+                                          </select> </td>
+                                      </tr>
+                                      <tr>
+                                        <td  rowspan="2">Ragione sociale<br> <span class="testoTabellelunghe">(ricerca
+                                          per chiave<br>
+                                          parziale; minimo 3 caratteri)</span></td>
+                                        <td rowspan="2" valign="top"> <input name="ragioneSociale" type="text" value="##ragioneSociale" class="testoCampi" size="30" maxlength="60">
+                                        </td>
+                                      </tr>
+                                      <tr> </tr>
+                                      <tr>
+                                        <input type="hidden" name="istat" value="##istat">
+                                        <td>Comune</td>
+                                        <td> <input name="comune" type="text" value="##comune" class="testoCampi" size="50" maxlength="40" readonly>
+                                          <a href="javascript:popComuneSearch(ricerca.istat,ricerca.comune);" class="pulsante">Seleziona</a> </td>
+                                      </tr>
+                                    </table>
+                                    <br> <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td><div align="center"><a href="javascript: ricercaElenco(ricerca)"><img src="../layout/im/b_ricerca.gif" alt="ricerca" width="150" height="16" border="0"></a></div></td>
+                                      </tr>
+                                    </table>
+                                   </form>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                     <tr>
+                                        <td colspan="6" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    @@elencoOrgProfessionaliNo
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td width="27%" align="center"><h2>Non &egrave; stata trovata nessuna organizzazione</h2></td>
+                                      </tr>
+                                    </table>
+                                    @@elencoOrgProfessionaliNo
+
+                                    @@elencoOrgProfessionali
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                          <td align="left" class="paginazione">Numero record
+                                           trovati: $$num</td>
+                                          <td align="right" class="paginazione">$$pagine&nbsp;</td>
+                                       </tr>
+                                    </table>
+                                    <br>
+
+                                    <table width="98%" border="0" align="center" cellpadding="1" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                      <tr>
+                                        <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="2" bgcolor="#FFFFFF">
+                                            <tr>
+                                              <td bgcolor="#F2F1EA"><b></b></td>
+                                              <td valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Codice
+                                                Fiscale / Partita IVA</b></td>
+                                              <td valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Ragione
+                                                Sociale</b></td>
+                                              <td valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Sede
+                                                territoriale</b></td>
+                                              <td valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Indirizzo</b></td>
+                                              <td valign="top" bgcolor="#F2F1EA" class="testoTabellelunghe"><b>Comune</b></td>
+                                            </tr>
+                                            <tr>
+                                              <td colspan="6" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                                            </tr>
+                                            <form name="organizzazione" method="post">
+                                            <input type="hidden" name="cancella">
+                                            @@elencoOrgProfessionaleBody
+                                            <tr>
+                                              <td>
+                                                <input type="radio" name="radiobutton" value="$$idOrganizzazione" $$checked onClick="idOrganizzazioneSelected=$$idOrganizzazione">
+                                              </td>
+                                              <td class="testoTabellelunghe">$$cfPartitaIva</td>
+                                              <td class="testoTabellelunghe">$$ragioneSociale</td>
+                                              <td class="testoTabellelunghe">$$sedeTerritoriale</td>
+                                              <td class="testoTabellelunghe">$$indirizzo</td>
+                                              <td class="testoTabellelunghe">$$comune</td>
+                                            </tr>
+                                            @@elencoOrgProfessionaleBody
+                                            </form>
+                                          </table></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <table width="98%" border="0" align="center">
+                                      <tr>
+                                        @@indietro
+                                          <form name="Lista1" method="post" action="../view/ricercaOrganizzazione.jsp">
+                                            <input type="hidden" name="attuale" value="$$attuale">
+                                            <td class="pulsante"><a href="javascript:Lista1.submit();" class="pulsante">Pagina
+                                              indietro</a></td>
+                                          </form>
+                                        @@indietro
+                                        @@nonIndietro
+                                              <td>&nbsp;$$nonIndietro</td>
+                                        @@nonIndietro
+                                        <td> <div align="right"></div></td>
+                                        @@avanti
+                                          <form name="Lista2" method="post" action="../view/ricercaOrganizzazione.jsp">
+                                            <input type="hidden" name="attuale" value="$$attuale">
+                                            <td><div align="right"><a href="javascript:Lista2.submit();" class="pulsante">Pagina
+                                            avanti</a></div></td>
+                                          </form>
+                                        @@avanti
+                                        @@nonAvanti
+                                              <td><div align="right">&nbsp;$$nonAvanti</div></td>
+                                        @@nonAvanti
+                                      </tr>
+
+
+
+                                      <tr>
+                                        <td width="36%"><div align="right"><a href="javascript:pop('../view/newOrganizzazionePOP.jsp',700,450);"><img src="../layout/im/b_inserisci.gif" alt="inserisci" width="150" height="16" border="0"></a></div></td>
+                                        <td width="24%"><div align="center"><a href="javascript:popGesDet('../view/updateOrganizzazionePOP.jsp',organizzazione,700,450);"><img src="../layout/im/b_modifica.gif" alt="modifica" width="150" height="16" border="0"></a></div></td>
+                                        <td width="40%"><a href="javascript:cancella();"><img src="../layout/im/b_cancella.gif" alt="cancella" width="150" height="16" border="0"></a></td>
+                                      </tr>
+                                    </table>
+                                    @@elencoOrgProfessionali
+                                    @@elencoOrgProfessionaliNo
+                                     <table width="98%" border="0" align="center">
+                                      <tr>
+                                        <td width="36%"><div align="left"><a href="javascript:pop('../view/newOrganizzazionePOP.jsp',700,450);"><img src="../layout/im/b_inserisci.gif" alt="inserisci" width="150" height="16" border="0"></a></div></td>
+                                      </tr>
+                                    </table>
+                                    @@elencoOrgProfessionaliNo
+                                    <br> <br> <p>&nbsp;</p></td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="www.ruparpiemonte.it"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>

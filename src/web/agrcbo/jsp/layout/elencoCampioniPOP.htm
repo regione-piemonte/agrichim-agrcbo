@@ -1,0 +1,229 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/verificaData.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/filtriRicerca.js"></script>
+<script>
+function conferma()
+{
+  ricerca.action="../view/elencoCampioniPOP.jsp";
+  ricerca.submit();
+}
+</script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+
+<body text="#000000" onload="window.focus();" onunload="window.opener.focus()">
+<form name="ricerca" method="post" action="../controller/elencoCampioniPOP.jsp">
+  <table width="500" border="0" class="boxborder">
+    <tr>
+      <td>
+        <div align="center">
+          <h2>Imposta filtri di ricerca campione <br>
+            <br>
+          </h2>
+          <table width="100%" border="0" cellspacing="3" cellpadding="0">
+            <tr>
+              <td>Impostando delle chiavi e premendo &quot;ricerca&quot; verr&agrave;
+                presentato l'elenco dei campioni che rientrano nella selezione.
+              </td>
+            </tr>
+          </table>
+          <h2>&nbsp; </h2>
+          <table width="100%" border="0" align="center" cellspacing="3">
+            <tr>
+              <td  width="32%"><b>Tipo di materiale/matrice</b></td>
+              <td colspan="2">
+                <select name="tipoMateriale">
+                  <option value="">----------------------</option>
+                  @@tipoMateriale
+                    <option value="$$codiceMateriale" $$selected>$$descrizione</option>
+                  @@tipoMateriale
+                </select> </td>
+            </tr>
+            <tr>
+              <td  width="32%"><b>Anno</b></td>
+              <td colspan="2"><input type="text" name="annoCampione" size="4" maxlength="4" value="##annoCampione">
+              </td>
+            </tr>
+            <tr>
+              <td  width="32%"><b>Numero campione</b></td>
+              <td colspan="2">
+              <strong>da </strong>
+                <input type="text" name="numeroCampioneDa" size="6" maxlength="6" value="##numeroCampioneDa"> <strong>a</strong>
+                <input type="text" name="numeroCampioneA" size="6" maxlength="6" value="##numeroCampioneA">
+              </td>
+            </tr>
+            <tr><td colspan="3">&nbsp;</td></tr>
+            <tr>
+              <td  width="32%"><b>Numero della richiesta</b></td>
+              <td colspan="2"><strong>da</strong> <input type="text" name="idRichiestaDa" size="9" maxlength="9" value="##idRichiestaDa">
+                <strong>a</strong> <input type="text" name="idRichiestaA" size="9" maxlength="9" value="##idRichiestaA">
+              </td>
+            </tr>
+            <tr><td colspan="3">&nbsp;</td></tr>
+            <tr>
+              <td  rowspan="2"><b>Data di richiesta analisi</b></td>
+              <td width="17%" align="right"><strong>successiva al </strong></td>
+              <input type="hidden" name="dataDa" value="">
+              <td width="51%"> <input type="text" name="dataDaGiorno" value="##dataDaGiorno" size="2" maxlength="2">
+                /
+                <input type="text" name="dataDaMese" size="2" maxlength="2" value="##dataDaMese">
+                /
+                <input type="text" name="dataDaAnno" size="4" maxlength="4" value="##dataDaAnno"> </td>
+            </tr>
+            <tr>
+              <td align="right"><strong>precedente al </strong></td>
+              <input type="hidden" name="dataA" value="">
+              <td> <input type="text" name="dataAGiorno" size="2" maxlength="2" value="##dataAGiorno">
+                /
+                <input type="text" name="dataAMese" size="2" maxlength="2" value="##dataAMese">
+                /
+                <input type="text" name="dataAAnno" size="4" maxlength="4" value="##dataAAnno">
+              </td>
+            </tr>
+            <tr>
+              <td  rowspan="2"><b>Data di pagamento</b></td>
+              <td width="17%" align="right"><strong>successiva al </strong></td>
+              <input type="hidden" name="dataDaPag" value="">
+              <td width="51%"> <input type="text" name="dataDaGiornoPag" value="##dataDaGiornoPag" size="2" maxlength="2">
+                /
+                <input type="text" name="dataDaMesePag" size="2" maxlength="2" value="##dataDaMesePag">
+                /
+                <input type="text" name="dataDaAnnoPag" size="4" maxlength="4" value="##dataDaAnnoPag"> </td>
+            </tr>
+            <tr>
+              <td align="right"><strong>precedente al </strong></td>
+              <input type="hidden" name="dataAPag" value="">
+              <td> <input type="text" name="dataAGiornoPag" size="2" maxlength="2" value="##dataAGiornoPag">
+                /
+                <input type="text" name="dataAMesePag" size="2" maxlength="2" value="##dataAMesePag">
+                /
+                <input type="text" name="dataAAnnoPag" size="4" maxlength="4" value="##dataAAnnoPag">
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" bgcolor="#F2F1EA"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+            </tr>
+            <tr>
+              <td  rowspan="2"><b>Anagrafica del Proprietario<br>
+                </b><span class="testoTabellelunghe">(ricerca per chiave parziale:
+                digitare almeno 2 caratteri del Cognome o Ragione Sociale)</span></td>
+              <td><div align="right">Cognome o <br>
+                  Ragione sociale</div></td>
+              <td> <input type="text" name="cognomeProprietario" size="60" maxlength="60" value="##cognomeProprietario">
+              </td>
+            </tr>
+            <tr>
+              <td height="25"> <div align="right">Nome </div></td>
+              <td> <input type="text" name="nomeProprietario" size="40" maxlength="40" value="##nomeProprietario">
+              </td>
+            </tr>
+            <tr>
+              <td  rowspan="2"><b>Anagrafica del Tecnico<br>
+                </b><span class="testoTabellelunghe">(ricerca per chiave parziale:
+                digitare almeno 2 caratteri del cognome)</span></td>
+              <td><div align="right">Cognome </div></td>
+              <td> <input type="text" name="cognomeTecnico" size="60" maxlength="60" value="##cognomeTecnico">
+              </td>
+            </tr>
+            <tr>
+              <td><div align="right">Nome </div></td>
+              <td> <input type="text" name="nomeTecnico" size="40" maxlength="40" value="##nomeTecnico">
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" bgcolor="#F2F1EA"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+            </tr>
+            <tr>
+              <td><b>Tipo organizzazione</b></td>
+              <td colspan="2">
+               <select name="tipoOrganizzazione" onChange="conferma();">
+                  <option value="-1" selected>----------</option>
+                    @@tipoOrganizzazione
+                      <option value="$$cod" $$selected>$$desc</option>
+                    @@tipoOrganizzazione
+                </select> </td>
+            </tr>
+            <tr>
+              <td><b>Organizzazione </b></td>
+              <td colspan="2">
+               <select name="organizzazione">
+                  <option value="-1" selected>----------</option>
+                    @@organizzazione
+                      <option value="$$cod" $$selected>$$desc</option>
+                    @@organizzazione
+                </select> </td>
+            </tr>
+            <tr>
+              <td><b>Etichetta<br>
+                </b><span class="testoTabellelunghe">(ricerca per chiave parziale:
+                <br>
+                digitare almeno 4 caratteri)</span></td>
+              <td colspan="2"> <input type="text" name="etichetta" size="40" maxlength="40" value="##etichetta">
+              </td>
+            </tr>
+            <tr>
+              <td><b>Laboratorio di consegna </b></td>
+              <td colspan="2">
+                <select name="labConsegna" >
+                    <option value="">--------</option>
+                        @@laboratorio
+                          <option value="$$codice" $$selected>$$descrizione</option>
+                        @@laboratorio
+                 </select> </td>
+
+            </tr>
+            <tr>
+              <td><b>Stato</b></td>
+              <td colspan="2"> <select name="stato">
+                  <option value="">--------</option>
+                     @@stato
+                        <option value="$$codice" $$selected>$$descrizione</option>
+                     @@stato
+                </select> </td>
+            </tr>
+            <tr>
+              <td width="38%"><b>Codice Avviso</b><span class="testoCampi"></span></td>
+              <td colspan="2"><input name="iuv" value="##iuv" type="text" class="testoCampi" size="40" maxlength="40"></td>
+            </tr>
+            <tr>
+              <td><b>Stato pagamento analisi </b></td>
+              <td colspan="2"> <select name="statoPagamento">
+                  <option value="">------------</option>
+                  <option value="S" ##selectedPagata>pagata</option>
+                  <option value="N" ##selectedDaPagare>da pagare</option>
+                  <option value="G" ##selectedGratuita>gratuita</option>
+                </select> </td>
+            </tr>
+            <tr>
+              <td><b>Analisi con Fattura</b></td>
+              <td colspan="2">
+                <select name="analisiFattura">
+                  <option value="">-------------------</option>
+                  <option value="D" ##selectedDaEmettere>da emettere</option>
+                  <option value="E" ##selectedEmessa>emessa</option>
+                  <option value="N" ##selectedNonRichiesta>non richiesta</option>
+                </select> </td>
+            </tr>
+          </table>
+          <br>
+          <table width="100%" border="0" align="center" cellpadding="0" cellspacing="5">
+            <tr>
+              <td align="right"><div align="right"><a href="javascript:if (ricercaElenco(ricerca)) ricerca.submit();"><img src="../layout/im/b_conferma.gif" alt="conferma" width="150" height="16" border="0"></a></div></td>
+              <td align="right"><div align="left"><a href="javascript:window.close();"><img src="../layout/im/b_annulla.gif" alt="annulla" width="150" height="16" border="0"></a></div></td>
+            </tr>
+          </table>
+          <br>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

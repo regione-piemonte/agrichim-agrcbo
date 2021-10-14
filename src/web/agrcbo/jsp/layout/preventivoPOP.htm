@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/mail.js"></script>
+<script src="../layout/js/trim.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/codiceFiscale.js"></script>
+<script src="../layout/js/partitaIVA.js"></script>
+<script src="../layout/js/preventivoPOP.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+
+<body text="#000000" onLoad="window.focus();" onUnload="if (typeof(hWin)!='undefined') hWin.close(); window.opener.focus();">
+<form name="preventivoPOP" method="post" action="../controller/##insertUpdate">
+  <table width="500" border="0" class="boxborder">
+    <tr>
+      <td>
+        <div align="center">
+          <h2>Dati del preventivo<br>
+          </h2>
+          <table width="100%" border="0" align="center">
+            @@errore
+            <tr>
+              <td colspan="2" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+              non sono stati inseriti correttamente
+                <br>
+                <br>
+              </td>
+            </tr>
+            @@errore
+            <tr>
+              <td width="25%">Numero Preventivo (*) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td width="75%">
+                <input name="numero_preventivo" type="text" value="##numero_preventivo" class="testoCampi" size="25" maxlength="20" ##readonly>##errore1</td>
+            </tr>
+            <input type="hidden" value="##idPreventivo" name="idPreventivoStr">
+            <tr>
+              <td>Codice Fiscale (*) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td><input name="codice_fiscale" type="text" value="##codice_fiscale" class="testoCampi" size="25" maxlength="16">##errore2</td>
+            </tr>
+            <tr>
+              <td>Importo (*) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td><input name="importo" type="text" value="##importo" class="testoCampi" size="25" maxlength="10">##errore3</td>
+            </tr>
+            <tr>
+              <td>Note aggiuntive </td>
+              <td><textarea name="note_aggiuntive" rows="5" cols="50" class="testoCampi">##note_aggiuntive</textarea>##errore4</td>
+            </tr>
+          </table>
+          <br>
+          <table width="100%" border="0" align="center" cellpadding="0" cellspacing="5">
+            <tr>
+              <td align="right"><div align="right"><a href="javascript:if (salva(preventivoPOP)) submitPreventivo(preventivoPOP);"><img src="../layout/im/b_conferma.gif" alt="conferma" width="150" height="16" border="0"></a></div></td>
+              <td align="right"><div align="left"><a href="javascript:window.close();"><img src="../layout/im/b_annulla.gif" alt="annulla" width="150" height="16" border="0"></a></div></td>
+            </tr>
+          </table>
+          <br>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report Type="TabularSheet" Top="1.8503937007874016" Left="0.3937007874015748" Bottom="1.1023622047244095" Right="0.3937007874015748" HeaderFromEdge="0.3937007874015748" FooterFromEdge="0.984251968503937" PageNumbering="0" HorizontalWrap="true" PaperSize="8.267716x11.692913" Orientation="0" TabStops="0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0,5.5,6.0,6.5,7.0,7.5,8.0"
+ Prompting="true"><Version>9.5</Version>
+<ReportProperty Name="report.modified">
+<![CDATA[2012-03-05 16:56:46]]>
+</ReportProperty>
+<ReportProperty Name="TextMode">
+<![CDATA[false]]>
+</ReportProperty>
+<ReportProperty Name="live.edit">
+<![CDATA[false]]>
+</ReportProperty>
+<ReportProperty Name="edit.layout">
+<![CDATA[false]]>
+</ReportProperty>
+<ReportProperty Name="report.created">
+<![CDATA[2011-11-30 11:25:04]]>
+</ReportProperty>
+<Parameters>
+</Parameters>
+<ParameterSheets>
+</ParameterSheets>
+<RunningTotals>
+</RunningTotals>
+<dataViews>
+</dataViews>
+<reportAssetRepository>
+</reportAssetRepository>
+<Header Type="256">
+<SectionElement ID="sezioneHeaderDefault" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Dialog-PLAIN-10" Foreground="-16777216" AdhocEnabled="true">
+<property><name><![CDATA[grow]]></name><value><![CDATA[true]]></value></property>
+<Section>
+<SectionHeader>
+<SectionBand Height="0.31496063" Visible="false" ShrinkToFit="false" PageBefore="false" PageAfter="false" SuppressBlank="false" TopBorder="0" LeftBorder="0" Breakable="true" RepeatHeader="true" Underlay="false" AtBottom="false" KeepTogether="false" BottomBorder="0" RightBorder="0" OrphanControl="false" Elements="0">
+<Shapes>
+</Shapes>
+</SectionBand>
+</SectionHeader>
+<SectionContent>
+<SectionBand Height="1.1811024" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" SuppressBlank="false" TopBorder="0" LeftBorder="0" Breakable="false" RepeatHeader="false" Underlay="false" AtBottom="false" KeepTogether="false" BottomBorder="0" RightBorder="0" OrphanControl="false" Elements="4">
+<ImageElement ID="imgLogoRegione" Alignment="65" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Dialog-PLAIN-10" Foreground="-16777216" Embedded="true" Layout="0" Wrapping="3" Rotation="0" Margin="0,0,0,0">
+<property><name><![CDATA[adjust.height]]></name><value><![CDATA[false]]></value></property>
+<property><name><![CDATA[grow]]></name><value><![CDATA[true]]></value></property>
+<Image Width="72" Height="36">
+<![CDATA[GhVQ99+$1l'EujKf2?Z)Nf.K^]fm-YoF*@j"bR<21_%?iA2?5Y=U?06I/*3i_hSaEiPUGss*X[Gj(!OU
+R@j;cbd(HUgZtVYs4M%#mmZ,7>+Xtop5*B5nqlM/7\?`0$iB82J*';Zo(ht0h;QO@:S(MQ5CE7qiPUE]
++5t+m&"de88=TukLQ&P
+]]>
+</Image>
+</ImageElement>
+<FieldProperty X="0" Y="0" Width="76" Height="36" VLine="0" VLineColor="-16777216"/>
+<TextBoxElement ID="tbxIndirizzo" Alignment="12" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-8" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="66" Shadow="false" Padding="0,0,0,0" BorderColor="-16777216" Layout="0" Wrapping="0" Rotation="0" Size="4.25x0.8333333" Margin="0,0,0,0">
+<property><name><![CDATA[adjust.height]]></name><value><![CDATA[true]]></value></property>
+<property><name><![CDATA[grow]]></name><value><![CDATA[false]]></value></property>
+<![CDATA[Via 
+Tel. 
+Partita IVA: ]]>
+</TextBoxElement>
+<FieldProperty X="420" Y="25" Width="306" Height="60" VLine="0" VLineColor="-16777216"/>
+<TextBoxElement ID="tbxSettore" Alignment="12" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-BOLD-8" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="66" Shadow="false" Padding="0,0,0,0" BorderColor="-16777216" Layout="0" Wrapping="1" Rotation="0" Size="4.25x0.33333334" Margin="0,0,0,0">
+<property><name><![CDATA[adjust.height]]></name><value><![CDATA[false]]></value></property>
+<property><name><![CDATA[grow]]></name><value><![CDATA[false]]></value></property>
+<![CDATA[ SETTORE FITOSANITARIO REGIONALE 
+Laboratorio Agrochimico Regionale]]>
+</TextBoxElement>
+<FieldProperty X="420" Y="0" Width="306" Height="24" VLine="0" VLineColor="-16777216"/>
+<TextBoxElement ID="tbxAssessorato" Alignment="33" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-ITALIC-8" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="65" Shadow="false" Padding="0,0,0,0" BorderColor="-16777216" Layout="0" Wrapping="0" Rotation="0" Size="3.0555556x0.41666666" Margin="0,0,0,0">
+<property><name><![CDATA[adjust.height]]></name><value><![CDATA[false]]></value></property>
+<property><name><![CDATA[grow]]></name><value><![CDATA[false]]></value></property>
+<![CDATA[ASSESSORATO ALL'AMBIENTE, QUALITA' E AGRICOLTURA  
+Direzione Sviluppo dell'Agricoltura     ]]>
+</TextBoxElement>
+<FieldProperty X="0" Y="55" Width="220" Height="30" VLine="0" VLineColor="-16777216"/>
+<Shapes>
+</Shapes>
+</SectionBand>
+</SectionContent>
+<SectionFooter>
+<SectionBand Height="0.19685039" Visible="true" ShrinkToFit="false" PageBefore="false" PageAfter="false" SuppressBlank="false" TopBorder="0" LeftBorder="0" Breakable="false" RepeatHeader="false" Underlay="false" AtBottom="false" KeepTogether="false" BottomBorder="0" RightBorder="0" OrphanControl="false" Elements="1">
+<SeparatorElement ID="sepHeader" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" Style="8195" SeparatorAdvance="4">
+</SeparatorElement>
+<FieldProperty X="0" Y="6" Width="728" Height="8" VLine="0" VLineColor="-16777216"/>
+<Shapes>
+</Shapes>
+</SectionBand>
+</SectionFooter>
+</Section>
+<Table Rows="2" Cols="15" HeaderRow="1" HeaderCol="0" TrailerRow="0" TrailerCol="0">
+<TR>
+<TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD></TR>
+<TR>
+<TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD></TR>
+</Table>
+</SectionElement>
+</Header>
+<Header Type="512">
+<TextBoxElement ID="txtBoxPagata1" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-8" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Size="0.7x0.2" Margin="1,1,1,1">
+<![CDATA[Pagata:]]>
+</TextBoxElement>
+<TextBoxElement ID="txtBoxLegenda1" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-8" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Margin="1,1,1,1">
+<![CDATA[P - Parzialmente, non tutte le analisi risultano pagate  ]]>
+</TextBoxElement>
+<NewlineElement ID="NewlineFooter1" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" Count="1" Break="false">
+</NewlineElement>
+<TextBoxElement ID="txtBoxPagata2" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-8" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Size="0.7x0.2" Margin="1,1,1,1">
+<![CDATA[]]>
+</TextBoxElement>
+<TextBoxElement ID="txtBoxLegenda2" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-8" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Margin="1,1,1,1">
+<![CDATA[Si - Tutte le analisi risultano pagate  ]]>
+</TextBoxElement>
+<NewlineElement ID="NewlineFooter2" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" Count="1" Break="false">
+</NewlineElement>
+<TextBoxElement ID="txtBoxPagata3" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-8" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Size="0.7x0.2" Margin="1,1,1,1">
+<![CDATA[]]>
+</TextBoxElement>
+<TextBoxElement ID="txtBoxLegenda3" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-8" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Margin="1,1,1,1">
+<![CDATA[No - Nessuna analisi risulta pagata  ]]>
+</TextBoxElement>
+<NewlineElement ID="NewlineFooter3" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" Count="1" Break="false">
+</NewlineElement>
+</Header>
+<Shapes>
+</Shapes>
+<Grid Rows="1" Cols="1">
+<GR Height="0">
+<GD Borders="0,0,0,0" Width="1*" Repeat="false" CellFitPage="true">
+<NewlineElement ID="Newline15" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" Count="1" Break="false">
+</NewlineElement>
+<TableElement ID="tblCriteri" Alignment="10" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" TableWidth="0.0" AdhocEnabled="true" Layout="0" TableAdvance="3" MaxColWidth="0.0" OrphanControl="false" FillPage="false" MultiColumn="0" KeepSpanTogether="false" KeepGroupTogether="false" Padding="1,1,1,1" EmbedWidth="false" Embedded="true">
+<property><name><![CDATA[grow]]></name><value><![CDATA[true]]></value></property>
+<Table Rows="1" Cols="4" HeaderRow="0" HeaderCol="0" TrailerRow="0" TrailerCol="0">
+<TR>
+<TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD><TD Type="null"><![CDATA[null]]></TD></TR>
+</Table>
+</TableElement>
+<TextBoxElement ID="txtBoxDatiIntestatario" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-BOLD-10" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="4" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Size="5.0x0.21" Margin="1,1,1,1">
+<![CDATA[Elenco fatture emesse a favore di:    ]]>
+</TextBoxElement>
+<TextBoxElement ID="txtBoxRagSociale" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-10" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Size="4.0x0.21" Margin="1,1,1,1">
+<![CDATA[ragione ]]>
+</TextBoxElement>
+<NewlineElement ID="Newline4" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" Count="1" Break="false">
+</NewlineElement>
+<TextBoxElement ID="txtBoxFittizia1" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-10" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Size="5.0x0.21" Margin="1,1,1,1">
+<![CDATA[]]>
+</TextBoxElement>
+<TextBoxElement ID="txtBoxIndirizzo" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-10" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Size="4.0x0.21" Margin="1,1,1,1">
+<![CDATA[Via ]]>
+</TextBoxElement>
+<NewlineElement ID="Newline10" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" Count="1" Break="false">
+</NewlineElement>
+<TextBoxElement ID="txtBoxFittizia2" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-10" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Size="5.0x0.21" Margin="1,1,1,1">
+<![CDATA[]]>
+</TextBoxElement>
+<TextBoxElement ID="txtBoxComune" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-10" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Size="4.0x0.21" Margin="1,1,1,1">
+<![CDATA[Comune ]]>
+</TextBoxElement>
+<NewlineElement ID="Newline11" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" Count="1" Break="false">
+</NewlineElement>
+<TextBoxElement ID="txtBoxFittizia3" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-PLAIN-10" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Size="5.0x0.21" Margin="1,1,1,1">
+<![CDATA[]]>
+</TextBoxElement>
+<TextBoxElement ID="txtBoxPIVA" Alignment="9" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="1" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Size="4.0x0.21" Margin="1,1,1,1">
+<![CDATA[P. IVA ]]>
+</TextBoxElement>
+<NewlineElement ID="Newline6" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" Count="1" Break="false">
+</NewlineElement>
+<NewlineElement ID="Newline8" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" Count="1" Break="false">
+</NewlineElement>
+<TextBoxElement ID="txtBoxNessunaFattura" Alignment="10" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="SansSerif-BOLD-10" Background="-1" Foreground="-16777216" Border="0" Shape="1" Justify="false" TextAlignment="2" Shadow="false" Padding="1,1,1,1" BorderColor="-16777216" Layout="0" Wrapping="3" Rotation="0" Margin="1,1,1,1">
+<![CDATA[Nessuna fattura rientra nei parametri indicati nella ricerca]]>
+</TextBoxElement>
+<NewlineElement ID="Newline81" Alignment="1" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Dialog-PLAIN-10" Background="-1" Foreground="-16777216" Count="1" Break="false">
+</NewlineElement>
+<TableElement ID="tblFatture" Alignment="2" Indent="0.0" Hindent="0" Spacing="0" Visible="true" HideOnPrint="false" KeepWithNext="false" Font="Serif-PLAIN-10" Background="-1" Foreground="-16777216" TableWidth="0.0" AdhocEnabled="true" Layout="1" TableAdvance="3" MaxColWidth="0.0" OrphanControl="false" FillPage="false" MultiColumn="0" KeepSpanTogether="false" KeepGroupTogether="false" Padding="1,1,1,1" EmbedWidth="false" Embedded="true">
+<property><name><![CDATA[grow]]></name><value><![CDATA[true]]></value></property>
+<Table Rows="1" Cols="8" HeaderRow="1" HeaderCol="0" TrailerRow="0" TrailerCol="0">
+<TR>
+<TD Type="string"><![CDATA[Data]]></TD><TD Type="string"><![CDATA[Numero]]></TD><TD Type="string"><![CDATA[Imponibile]]></TD><TD Type="string"><![CDATA[IVA]]></TD><TD Type="string"><![CDATA[Costo spedizione]]></TD><TD Type="string"><![CDATA[Totale]]></TD><TD Type="string"><![CDATA[Pagata]]></TD><TD Type="string"><![CDATA[Stato fattura]]></TD></TR>
+</Table>
+</TableElement>
+</GD>
+</GR>
+</Grid>
+</Report>

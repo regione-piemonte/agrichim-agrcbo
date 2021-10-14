@@ -1,0 +1,440 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/checkUncheck.js"></script>
+<script src="../layout/js/codiceFiscale.js"></script>
+<script src="../layout/js/partitaIVA.js"></script>
+<script src="../layout/js/isFloat.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/testLength.js"></script>
+<script src="../layout/js/printf.js"></script>
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+function salva(form)
+{
+  var msg = '';
+
+  if (form.descrizione.value == '')
+  {
+  	msg = msg + 'Valorizzare la voce "Descrizione fattura"\n';
+  }
+
+  /**
+   *  Il campo Partita IVA o Codice fiscale può contenere
+   *  - sia una partita iva (quindi deve contenere solo numeri ed essere
+   *    lungo 11)
+   *  - sia un codice fiscale (quindi deve essere lungo 16 e bisogna fare
+   *    dei controlli ulteriori sulla posizione delle lettere e dei numeri)
+   *  a seconda che il tipo sia azienda o privato
+   **/
+   form.cfPartitaIva.value = form.cfPartitaIva.value.trim();
+   form.ragioneSociale.value = form.ragioneSociale.value.trim();
+   form.indirizzo.value = form.indirizzo.value.trim();
+   lung = form.cfPartitaIva.value.length;
+   if (lung != 11 && lung != 16)
+   {
+     msg = msg + 'Valorizzare una voce corretta in "Partita IVA o Codice fiscale"\n';
+   }
+   else
+   {
+     form.cfPartitaIva.value = form.cfPartitaIva.value.toUpperCase();
+     if (lung == 11)
+     {
+       msgTmp = controllaPartitaIVA(form.cfPartitaIva.value);
+       if (msgTmp != '')
+       {
+       	msg = msg + '"Partita IVA o Codice fiscale" - ' + msgTmp + '\n';
+       }
+     }
+     if (lung == 16)
+     {
+       msgTmp = controllaCodiceFiscale(form.cfPartitaIva.value);
+       if (msgTmp != '')
+       {
+       	msg = msg + '"Partita IVA o Codice fiscale" - ' + msgTmp + '\n';
+       }
+     }
+   }
+
+   if (form.ragioneSociale.value == '')
+   {
+   	msg = msg + 'Valorizzare la voce "Cognome e Nome o Ragione Sociale"\n';
+   }
+   if (form.indirizzo.value == '')
+   {
+   	msg = msg + 'Valorizzare la voce "Indirizzo"\n';
+   }
+   if (!((form.cap.value.length == 5) && (isNumber(form.cap.value))))
+   {
+  	 msg = msg + 'Valorizzare correttamente la voce "CAP"\n';
+   }
+     
+   if (form.comune.value == '')
+   {
+   	msg = msg + 'Selezionare il "Comune"\n';
+   }
+
+   if (form.totaleComplessivo.value == '')
+   {
+   	msg = msg + 'Valorizzare la voce "Totale complessivo"\n';
+   }
+
+   if (form.costoSpedizione.value == '')
+   {
+   	msg = msg + 'Valorizzare la voce "Costo di spedizione"\n';
+   }
+
+	 var fatturaPagata = '';
+   for (i = 0; i < form.pagata.length; i++)
+   {
+     if (form.pagata[i].checked)
+     {
+         fatturaPagata = form.pagata[i].value;
+         break;
+     }
+   }
+	 if (fatturaPagata == '')
+   {
+   	 msg = msg + 'Selezionare "Fattura pagata"\n';
+   }
+
+   msg = aggiornaTotale(form, msg);
+
+  if (msg != '')
+  {
+      alert( "Dati incompleti\n\n" + msg);
+      return false;
+  }
+  else
+  {
+  	return true;
+  }  
+}
+
+function aggiornaTotale(form, msg)
+{	 
+		var visualizzaMessaggio = false;
+		if (msg == null)
+		{
+			visualizzaMessaggio = true;
+			msg = '';
+		}
+		
+	 form.totaleComplessivo.value = form.totaleComplessivo.value.trim();
+	 var totaleComplessivo = form.totaleComplessivo.value.replace(",",".");
+
+   if ((totaleComplessivo != '') && (! isFloat(totaleComplessivo, 2) || (totaleComplessivo < 0) || (totaleComplessivo > 999999.99)))
+   {
+			msg = msg + 'Inserire un numero nel formato ######,## nel campo "Totale complessivo""\n';
+   }
+   else
+   {
+   	 totaleComplessivo = totaleComplessivo.replace(",",".");
+   }
+
+	 form.costoSpedizione.value = form.costoSpedizione.value.trim();
+   var costoSpedizione = form.costoSpedizione.value.replace(",",".");
+   if ((costoSpedizione != '') && (! isFloat(costoSpedizione, 2) || (costoSpedizione < 0) || (costoSpedizione > 999999.99)))
+   {
+			msg = msg + 'Inserire un numero nel formato ######,## nel campo "Costo spedizione""\n';
+   }
+   else
+   {
+   	 costoSpedizione = costoSpedizione.replace(",",".");
+   }   
+
+  if (msg != '')
+  {
+  		if (visualizzaMessaggio)
+  		{
+  			alert( "Dati incompleti\n\n" + msg);
+  		}
+  		
+      return msg;
+  }
+  else
+  {
+  	var totale = 0;
+  	var iva0 = form.iva0.value;
+  	
+  	if (totaleComplessivo != '')
+  	{
+	  	var totaleImponibile = totaleComplessivo / iva0;
+	  	totaleImponibile = Math.round(totaleImponibile * 100) / 100;
+	  	totaleImponibile = sprintf("%.2d", totaleImponibile);
+	  
+	  	var totaleIva = totaleComplessivo - totaleImponibile;
+	  	totaleIva = Math.round(totaleIva * 100) / 100;
+	  	totaleIva = sprintf("%.2d", totaleIva);
+	  	
+	  	var totaleFattura = '';
+	  	if (costoSpedizione != '')
+	  	{
+	  		totaleFattura = parseFloat(totaleComplessivo) + parseFloat(costoSpedizione);
+	  		totaleFattura = Math.round(totaleFattura * 100) / 100;
+	  		totaleFattura = sprintf("%.2d", totaleFattura);
+	  	}
+
+	  	form.totaleImponibile.value = totaleImponibile.replace(".",",");
+	  	form.importoImponibile.value = form.totaleImponibile.value;
+	  	
+	  	form.totaleIva.value = totaleIva.replace(".",",");
+	  	form.importoIva.value = form.totaleIva.value;
+	  	
+	  	form.totaleFattura.value = totaleFattura.replace(".",",");  	
+  	}
+
+  	return msg;
+  }
+}
+</script>
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle"> 
+    <td> 
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr> 
+          <td> 
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td><img src="../layout/im/ban_sup.gif" width="638" height="40" alt="RuparPiemonte"></td>
+              </tr>
+              
+              <tr valign="top" align="right"> 
+                <td width="640"> 
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr> 
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84"> 
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14"> 
+                        </div>
+                      </td>
+                      <td width="585" height="2" background="../layout/im/pix_verde_nuovo.gif">&nbsp;&nbsp; 
+                        <img src="../layout/im/agrichim_nuovo.gif" alt="servizio agrichim" width="164" height="13" align="top"> 
+                      </td>
+                      <td height="1" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr> 
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2"> 
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif"> 
+                            <td background="../layout/im/pix-gri-ban.gif"> 
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" background="../layout/im/pix_verde_nuovo.gif">
+                                    <div align="center"> <br>
+                                      <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td> <p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente</strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaAnalisi.jsp" target="_nuova_"><img src="../layout/im/tit_sx_nuovaAnalisi_off.gif" alt="prenotazione nuova analisi" width="124" height="29" border="0"></a><br>
+                                      <br>
+                                      <a href="../view/menuCampioni.jsp"><img src="../layout/im/tit_sx_campioni_off.gif" alt="campioni" width="124" height="29" border="0"></a>
+                                      <br>
+                                      <br>
+                                       <a href="../view/menuAnagrafiche.jsp"><img src="../layout/im/tit_sx_anagrafiche_off.gif" alt="anagrafiche" width="124" height="29" border="0"></a><br><br>
+                                      <a href="../view/ricercaPreventivi.jsp"><img src="../layout/im/tit_sx_gestionePreventivi_off.gif" alt="gestione preventivi" width="124" height="29" border="0"></a><br><br>
+                                      <br>
+                                      <a href="../view/menuTabelle.jsp"><img src="../layout/im/tit_sx_datisistema_off.gif" alt="dati di sistema" width="124" height="29" border="0"></a><a href="javascript:pop2('anagraficaUtentePOP.htm');"><br>
+                                      <br>
+                                      </a>
+                                      <table width="124" border="0" cellpadding="2" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                        <tr> 
+                                          <td><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#DE8636">
+                                              <tr> 
+                                                <td background="../layout/im/utilita.gif">&nbsp;</td>
+                                              </tr>
+                                              <!--
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><strong><a href="../view/stampaLog.jsp" class="testoTabellelungheVerdeON">Stampa
+                                                  Log</a></strong> </td>
+                                              </tr>
+                                              -->
+                                              <tr> 
+                                                <td bgcolor="#FFFFFF"><strong><a href="../controller/gestioneFatture.jsp" class="testoTabellelungheVerdeON">Gestione fatture emesse</a></strong></td>
+                                              </tr>
+                                              <tr> 
+                                                <td bgcolor="#FFFFFF"><strong><a href="../controller/stampaFatture.jsp" class="testoTabellelungheVerdeON">Elenco fatture</a> </strong></td>
+                                              </tr>
+                                              <tr> 
+                                                <td bgcolor="#FFE193"><strong><a href="#" class="testoTabellelungheVerdeON">Emissione fattura in bianco</a> </strong></td>
+                                              </tr>
+                                              <!--
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><a href="../view/elencoCampioni.jsp" class="testoTabellelungheVerdeON"><strong>Elenco
+                                                  campioni</strong></a> </td>
+                                              </tr>
+                                              -->
+                                            </table></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="HomeBackOffice.htm"><img src="../layout/im/tit_sx_logoutN_off.gif" alt="logout" width="124" height="29" border="0"></a><br><br> 
+                                    </div>
+                                    
+                                  </td>
+                                  <td width="577" height="450" valign="top" bgcolor="#F2F1EA"> <br>
+                                    <h1>Emissione fattura in bianco</h1>
+                                    <br> <table width="98%" border="0" align="center">
+                                      <tr> 
+                                        <td width="27%">
+                                        	<p>
+                                        	  Con questa funzione &egrave; possibile emettere una fattura non collegata ad una richiesta di analisi.
+                                          </p>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <br/>
+                                    <form name="fatturaInBianco" method="post" action="../controller/fatturaInBianco.jsp">
+	                                    <input type="hidden" name="funzione" size="6" value=""/>                                    
+	                                    <table width="98%" border="0" align="center">
+	                                      <tr>
+	                                        <td  colspan="2"> <div align="center"><strong>Estremi di fatturazione</strong></div></td>
+	                                      </tr>
+	                                      <tr><td  colspan="2">&nbsp;</td></tr>                                      
+	                                      <tr> 
+	                                        <td width="36%">Descrizione fattura (*)</td>
+	                                        <td width="64%">
+	                                        	<input name="descrizione" value="$$descrizione" type="text" class="testoCampi" size="60" maxlength="200" onKeyPress="return testLength(note,200,'true');">$$err_descrizione
+	                                        </td>
+	                                      </tr>
+	                                      <tr><td  colspan="2">&nbsp;</td></tr>                                      
+	                                      <tr>
+	                                        <td width="36%">Codice fiscale o Partita IVA (*)</td>
+	                                        <td width="64%">
+	                                        	<input name="cfPartitaIva" value="$$cfPartitaIva" type="text" class="testoCampi" size="25" maxlength="16">$$err_cfPartitaIva
+	                                        </td>
+	                                      </tr>
+	                                      <tr>
+	                                        <td>Cognome e Nome o Ragione Sociale (*)</td>
+	                                        <td>
+	                                        	<input name="ragioneSociale" value="$$ragioneSociale" type="text" class="testoCampi" size="60" maxlength="60"> $$err_ragioneSociale
+	                                        </td>
+	                                      </tr>
+	                                      <tr>
+	                                        <td>Indirizzo (*)</td>
+	                                        <td>
+	                                        	<input name="indirizzo" value="$$indirizzo" type="text" class="testoCampi" size="50" maxlength="40">$$err_indirizzo
+	                                        </td>
+	                                      </tr>
+	                                      <tr>
+	                                        <td>CAP (*)</td>
+	                                        <td>
+	                                        	<input name="cap" value="$$cap" type="text" class="testoCampi" size="5" maxlength="5">$$err_cap
+	                                        </td>
+	                                      </tr>
+	                                      <tr>
+	                                        <td>Comune (*)</td>
+	                                        <td>
+	                                        	<input type="hidden" name="comune" value="$$comune">
+	                                        	<input type="hidden" name="siglaProvincia" value="$$siglaProvincia">
+	                                        	<input name="comuneDesc" value="$$comuneDesc" type="text" class="testoCampi" size="45" maxlength="40" readonly> 
+	                                          <a href="javascript:popComuneSearch(document.fatturaInBianco.comune, document.fatturaInBianco.comuneDesc, document.fatturaInBianco.siglaProvincia);" class="pulsante">Seleziona comune</a>$$err_descComune
+	                                        </td>
+	                                      </tr>
+	                                      <tr><td  colspan="2">&nbsp;</td></tr>
+	                                      <tr>
+	                                        <td>Totale imponibile</td>
+	                                        <td>
+	                                        	<input type="hidden" name="importoImponibile" value="">
+	                                        	<input name="totaleImponibile" type="text" class="testoCampi" size="5" maxlength="9" value="$$totaleImponibile" disabled> euro</td>
+	                                      </tr>
+	                                      <tr> 
+	                                        <td>Totale IVA ($$iva1) </td>
+	                                        <td>
+	                                        	<input type="hidden" name="iva0" value="$$iva0">
+	                                        	<input type="hidden" name="importoIva" value="">
+	                                        	<input name="totaleIva" type="text" class="testoCampi" size="5" maxlength="9" value="$$totaleIva" disabled> euro
+	                                        </td>
+	                                      </tr>
+	                                      <tr> 
+	                                        <td>Totale complessivo (*)</td>
+	                                        <td>
+	                                        	<input name="totaleComplessivo" type="text" class="testoCampi" size="5" maxlength="9" value="$$totaleComplessivo" onkeyup="aggiornaTotale(document.fatturaInBianco, null);"> euro
+	                                        </td>
+	                                      </tr>
+	                                      <tr> 
+	                                        <td>Costo di spedizione (*)</td>
+	                                        <td>
+	                                        	<input name="costoSpedizione" type="text" class="testoCampi" size="5" maxlength="9" value="$$costoSpedizione" onkeyup="aggiornaTotale(document.fatturaInBianco, null);"> euro
+	                                        </td>
+	                                      </tr>
+	                                      <tr> 
+	                                        <td><strong>Totale fattura</strong></td>
+	                                        <td> <input name="totaleFattura" type="text" class="testoCampi" size="5" maxlength="9" value="$$totaleFattura" disabled> euro</td>
+	                                      </tr>
+	                                      <tr><td  colspan="2">&nbsp;</td></tr>                                      
+	                                      <tr>
+	                                        <td valign="top">Fattura pagata (*)</td>
+	                                        <td>
+	                                        	<p>
+		                                          <input type="radio" name="pagata" value="S" $$checkedPagataS>Si
+		                                          <input type="radio" name="pagata" value="N" $$checkedPagataN>No<br>
+	                                          </p>
+	                                        </td>
+	                                      </tr>
+	                                    </table>
+                                    </form>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td>
+                                        	<div align="center">
+                                        		<a href="javascript:javascript:if (salva(document.fatturaInBianco)) submitFormFunzione(document.fatturaInBianco, 'conferma');"><img src="../layout/im/b_conferma.gif" alt="emissione fattura" width="150" height="16" border="0"></a>
+                                        		<a href="../view/utility.jsp"><img src="../layout/im/b_annulla.gif" alt="annulla" width="150" height="16" border="0"></a>
+                                        	</div>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                    <p>&nbsp;</p></td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333"> 
+          <td><a href="http://www.csi.it"><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="CSI-Piemonte l'amministrazione piemontese alla portata di un clic"></a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span> <map name="Map"> 
+  <area shape="rect" coords="70,1,151,43" href="granulometriaMetodoAutomatico.htm" alt="granulometria metodo automatico"> 
+  <area shape="rect" coords="114,51,193,96" href="granulometriaMetodoBojoucos.htm" alt="granulometria metodo Bojoucus"> 
+  <area shape="rect" coords="155,2,226,42" href="reazioneSuolo.htm" alt="reazione del suolo"> 
+  <area shape="rect" coords="197,50,262,96" href="calcimetria.htm" alt="calcimetria"> 
+  <area shape="rect" coords="231,1,309,42" href="sostanzaOrganica.htm" alt="sostanza organica"> 
+  <area shape="rect" coords="271,50,348,95" href="azoto.htm" alt="azoto metodo"> 
+  <area shape="rect" coords="315,5,395,43" href="complessoScambio.htm" alt="complesso di scambio"> 
+  <area shape="rect" coords="350,51,427,97" href="fosforoOLSEN.htm" alt="fosforo OLSEN"> 
+  <area shape="rect" coords="400,3,507,42" href="microelementi.htm" alt="micorelementi"> 
+  <area shape="rect" coords="430,51,516,92" href="conducibilit%E0Salinit%E0.htm" alt="conducibilit&agrave; e salinit&agrave;"> 
+  <area shape="rect" coords="29,53,109,89" href="umidita.htm" alt="umidit&agrave; del campione"> 
+</map> 
+</body>
+</html>

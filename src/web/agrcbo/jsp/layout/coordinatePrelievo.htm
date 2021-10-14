@@ -1,0 +1,588 @@
+<html>
+<head>
+<title>Servizio AGRICHIM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<script src="../layout/js/gestione.js"></script>
+<script src="../layout/js/isNumber.js"></script>
+<script src="../layout/js/isAlphaNumber.js"></script>
+<script src="../layout/js/coordinatePrelievo.js"></script>
+<script src="../layout/js/jquery-1.9.0.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+	  var coordGradi=$('input:radio[name=coordGradi]:checked').val();
+	   
+	   if (coordGradi=='DD')
+	   {
+	     $("#tblGradiEst").css("width","310");
+	     $("#tblGradiNord").css("width","310");
+	     $( "#minutiEst" ).hide();
+	     $( "#textMinutoEst" ).hide();
+	     $( "#secondiEst" ).hide();
+	     $( "#textSecondoEst" ).hide();
+	     $( "#minutiNord" ).hide();
+	     $( "#textMinutoNord" ).hide();
+	     $( "#secondiNord" ).hide();
+	     $( "#textSecondoNord" ).hide();
+	   }
+	   if (coordGradi=='DM')
+	   {
+	     $("#tblGradiEst").css("width","360px");
+	     $("#tblGradiNord").css("width","360px");
+	     $( "#minutiEst" ).show();
+	     $( "#textMinutoEst" ).show();
+	     $( "#minutiNord" ).show();
+	     $( "#textMinutoNord" ).show();
+	     $( "#secondiEst" ).hide();
+	     $( "#textSecondoEst" ).hide();
+	     $( "#secondiNord" ).hide();
+	     $( "#textSecondoNord" ).hide();
+	   }
+	   if (coordGradi=='DMS')
+	   {
+	     $("#tblGradiEst").css("width","390px");
+	     $("#tblGradiNord").css("width","390px");
+	     $("#minutiEst" ).show();
+	     $("#textMinutoEst" ).show();
+	     $("#secondiEst" ).show();
+	     $("#textSecondoEst" ).show();
+	     $("#minutiNord" ).show();
+	     $("#textMinutoNord" ).show();
+	     $("#secondiNord" ).show();
+	     $("#textSecondoNord" ).show();
+	   }
+	  
+   $('input:radio[name=coordGradi]').click(function()
+   {
+	  var coordGradiOld=$( "#coordGradiOld" ).val();
+	  var coodGradSel=$('input:radio[name=coordGradi]:checked').val();
+	  var gradiEst=$( "#gradiEst" ).val();
+	  var gradiNord=$( "#gradiNord" ).val();  
+	  var decimaliNord=$( "#decimaliNord" ).val();  
+	  var decimaliEst=$( "#decimaliEst" ).val();  
+    var minutiNord=$( "#minutiNord" ).val();  
+	  var minutiEst=$( "#minutiEst" ).val();  
+    var secondiNord=$( "#secondiNord" ).val();  
+	  var secondiEst=$( "#secondiEst" ).val();  
+	  
+	  if (coordGradiOld=='DD' && coodGradSel=='DM') 
+	  { 
+		  if (isNumber(decimaliEst))
+			  conversioneDDtoDM(decimaliEst,$( "#minutiEst" ), $( "#decimaliEst" ));
+		  
+		  if (isNumber(decimaliNord))
+			  conversioneDDtoDM(decimaliNord,$( "#minutiNord" ), $( "#decimaliNord" ));
+	  }
+    
+    if (coordGradiOld=='DM' && coodGradSel=='DD') 
+	  { 
+		  if (isNumber(decimaliEst) && isNumber(minutiEst) && isNumber(gradiEst))
+			  conversioneDMtoDD(gradiEst, minutiEst, decimaliEst,$( "#gradiEst" ), $( "#minutiEst" ), $( "#decimaliEst" ));
+		  
+		  if (isNumber(decimaliNord) && isNumber(minutiNord) && isNumber(gradiNord))
+			  conversioneDMtoDD(gradiNord, minutiNord, decimaliNord,$( "#gradiNord" ), $( "#minutiNord" ), $( "#decimaliNord" ));
+	  }
+    
+    if (coordGradiOld=='DMS' && coodGradSel=='DD')                                                                         
+	  {
+      if (isNumber(decimaliEst) && isNumber(minutiEst) && isNumber(secondiEst) && isNumber(gradiEst))
+			  conversioneDMStoDD(gradiEst, minutiEst, secondiEst, decimaliEst,$( "#gradiEst" ), $( "#minutiEst" ), $( "#secondiEst" ), $( "#decimaliEst" ));
+		  
+		  if (isNumber(decimaliNord) && isNumber(minutiNord) && isNumber(secondiNord) && isNumber(gradiNord))
+			  conversioneDMStoDD(gradiNord, minutiNord, secondiNord, decimaliNord,$( "#gradiNord" ), $( "#minutiNord" ), $( "#secondiNord" ), $( "#decimaliNord" ));
+    }
+    
+    if (coordGradiOld=='DD' && coodGradSel=='DMS')                                                                         
+	  {
+      if (isNumber(decimaliEst))
+			  conversioneDDtoDMS(decimaliEst, $( "#minutiEst" ), $( "#secondiEst" ), $( "#decimaliEst" ));
+		  
+		  if (isNumber(decimaliNord))
+			  conversioneDDtoDMS(decimaliNord, $( "#minutiNord" ), $( "#secondiNord" ), $( "#decimaliNord" ));
+    }
+    
+    if (coordGradiOld=='DM' && coodGradSel=='DMS') 
+    {
+      if (isNumber(decimaliEst) )
+			  conversioneDMtoDMS(decimaliEst, $( "#secondiEst" ), $( "#decimaliEst" ));
+        
+      if (isNumber(decimaliNord) )
+			  conversioneDMtoDMS(decimaliNord, $( "#secondiNord" ), $( "#decimaliNord" ));
+    }
+    
+    if (coordGradiOld=='DMS' && coodGradSel=='DM')                                                                         
+	  {
+      if (isNumber(decimaliEst) && isNumber(minutiEst) && isNumber(secondiEst))
+			  conversioneDMStoDM(minutiEst, secondiEst, decimaliEst, $( "#minutiEst" ), $( "#secondiEst" ), $( "#decimaliEst" ));
+		  
+		  if (isNumber(decimaliNord) && isNumber(minutiNord) && isNumber(secondiNord))
+			  conversioneDMStoDM(minutiNord, secondiNord, decimaliNord, $( "#minutiNord" ), $( "#secondiNord" ), $( "#decimaliNord" ));
+    }
+    
+      
+    
+    $( "#coordGradiOld" ).val(coodGradSel);
+	  
+	  
+      if (coodGradSel=='DD')
+      {
+        $("#tblGradiEst").css("width","310");
+        $("#tblGradiNord").css("width","310");
+        $( "#minutiEst" ).hide();
+        $( "#textMinutoEst" ).hide();
+        $( "#secondiEst" ).hide();
+        $( "#textSecondoEst" ).hide();
+        $( "#minutiNord" ).hide();
+        $( "#textMinutoNord" ).hide();
+        $( "#secondiNord" ).hide();
+        $( "#textSecondoNord" ).hide();
+      }
+      if (coodGradSel=='DM')
+      {
+        $("#tblGradiEst").css("width","360px");
+        $("#tblGradiNord").css("width","360px");
+        $( "#minutiEst" ).show();
+        $( "#textMinutoEst" ).show();
+        $( "#minutiNord" ).show();
+        $( "#textMinutoNord" ).show();
+        $( "#secondiEst" ).hide();
+        $( "#textSecondoEst" ).hide();
+        $( "#secondiNord" ).hide();
+        $( "#textSecondoNord" ).hide();
+      }
+      if (coodGradSel=='DMS')
+      {
+        $("#tblGradiEst").css("width","390px");
+        $("#tblGradiNord").css("width","390px");
+        $("#minutiEst" ).show();
+        $("#textMinutoEst" ).show();
+        $("#secondiEst" ).show();
+        $("#textSecondoEst" ).show();
+        $("#minutiNord" ).show();
+        $("#textMinutoNord" ).show();
+        $("#secondiNord" ).show();
+        $("#textSecondoNord" ).show();
+      }
+
+    });
+    
+  });
+</script>
+
+<script type="text/javascript">
+
+	function pulisciDatiCatastali()
+	{
+		document.coordinate.foglio.value='';
+		document.coordinate.sezione.value='';
+		document.coordinate.particellaCatastale.value='';
+		document.coordinate.subparticella.value='';
+	}
+	
+	function pulisciCoordinateUtm()
+	{
+		coordinate.coordinataNordUtm.value='';
+		coordinate.coordinataEstUtm.value='';
+	}
+	
+	function pulisciCoordinateBoaga()
+	{
+		coordinate.coordinataNordBoaga.value='';
+		coordinate.coordinataEstBoaga.value='';
+	}
+	
+	function pulisciCoordinateGradi()
+	{
+		coordinate.gradiEst.value = '';
+		coordinate.minutiEst.value = '';
+		coordinate.secondiEst.value = '';
+		coordinate.decimaliEst.value = '';
+		coordinate.gradiNord.value = '';
+		coordinate.minutiNord.value = '';
+		coordinate.secondiNord.value = '';
+		coordinate.decimaliNord.value = '';
+	}
+	
+	function pulisciCoordinateBoagaGradiUtm()
+	{
+		pulisciCoordinateBoaga();
+		pulisciCoordinateGradi();
+		pulisciCoordinateUtm();
+		coordinate.tipoGeoreferenziazione.value='M';
+	}
+	
+	function pulisciCoordinateBoagaGradi()
+	{
+		pulisciCoordinateBoaga();
+		pulisciCoordinateGradi();
+		pulisciDatiCatastali();
+		coordinate.tipoGeoreferenziazione.value='M';
+	}
+	
+	function pulisciCoordinateBoagaUtm()
+	{
+		pulisciCoordinateBoaga();
+		pulisciCoordinateUtm();
+		pulisciDatiCatastali();
+		coordinate.tipoGeoreferenziazione.value='M';
+	}
+	
+	function pulisciCoordinateGradiUtm()
+	{
+		pulisciCoordinateUtm();
+		pulisciCoordinateGradi();
+		pulisciDatiCatastali();
+		coordinate.tipoGeoreferenziazione.value='M';
+	}
+
+</script>
+
+<link href="../layout/css/format.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#CCCCCC">
+<table summary="Questa tabella serve per formattare la pagina"  width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr align="center" valign="middle">
+    <td>
+      <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+        <tr>
+          <td>
+            <table summary="Questa tabella serve per formattare la pagina" width="720" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../layout/im/ban_sup.gif" width="638" height="40" alt="RuparPiemonte"></td>
+              </tr>
+
+              <tr valign="top" align="right">
+                <td width="640">
+                  <table width="719" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1" height="2"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td width="2" height="2" bgcolor="#319E84"><img src="../layout/im/tra_pix.gif" width="2" height="2"></td>
+                      <td width="135" height="2" bgcolor="#319E84">
+                        <div align="right"><img src="../layout/im/agricoltura.gif" alt="agricoltura" width="89" height="14">
+                        </div>
+                      </td>
+                      <td width="585" height="2" background="../layout/im/pix_verde_nuovo.gif">&nbsp;&nbsp;
+                        <img src="../layout/im/agrichim_nuovo.gif" alt="servizio agrichim" width="164" height="13" align="top">
+                      </td>
+                      <td height="1" background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td background="../layout/im/pix-gri-ban.gif" height="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                    <tr>
+                      <td background="../layout/im/pix-gri-ban.gif" width="1"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                      <td bgcolor="#319E84" width="2"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+                      <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                          <tr background="../layout/im/pix-gri-ban.gif">
+                            <td background="../layout/im/pix-gri-ban.gif">
+                              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                  <td width="134" valign="top" background="../layout/im/pix_verde_nuovo.gif">
+                                    <div align="center"> <br>
+                                      <br>
+                                      <table width="124" height="50" border="0" align="center" cellpadding="0" cellspacing="5" background="../layout/im/sfondo_tab1.gif">
+                                        <tr>
+                                          <td>
+                                            <p class="testoUtente"><strong>Utente:<br>
+                                              ##nomeUtente</strong></p></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="../controller/nuovaAnalisi.jsp" target="_nuova_"><img src="../layout/im/tit_sx_nuovaAnalisi_off.gif" alt="prenotazione nuova analisi" width="124" height="29" border="0"></a><br>
+                                      <br>
+                                      <table width="124" height="142" border="0" cellpadding="2" cellspacing="0" background="../layout/im/pix_verde_nuovo.gif">
+                                        <tr>
+                                          <td><table width="100%" height="169" border="0" cellpadding="4" cellspacing="1" background="../layout/im/tit_sx_campioni_on3.gif">
+                                              <tr>
+                                                <td>&nbsp;</td>
+                                              </tr>
+                                              <tr bgcolor="#FFFFFF">
+                                                <td bgcolor="#FFFFFF"><strong><span class="testoTabellelungheVerde"><a href="../controller/ricercaCampioni.jsp" class="testoTabellelungheVerdeON">Ricerca
+                                                  campione</a></span></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFE193" class="testoTabellelungheVerdeON"><strong><a href="../controller/analisiRichieste.jsp" class="testoTabellelungheVerdeON">Analisi
+                                                  richieste</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF" class="testoTabellelungheVerde"><strong><a href="../controller/campioniLaboratorio.jsp" class="testoTabellelungheVerdeON">Campioni
+                                                  in laboratorio</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF" class="testoTabellelungheVerde"><strong><a href="../controller/analisiTerminate.jsp" class="testoTabellelungheVerdeON">Referti
+                                                  da emettere</a></strong></td>
+                                              </tr>
+                                              <tr>
+                                                <td bgcolor="#FFFFFF"><span class="testoTabellelungheVerde"><strong><a href="../controller/refertiEmessi.jsp" class="testoTabellelungheVerdeON">Referti
+                                                  emessi</a></strong></span> </td>
+                                              </tr>
+                                            </table></td>
+                                        </tr>
+                                      </table>
+                                      <br>
+                                      <a href="javascript:pop2('anagraficaUtentePOP.htm');">
+                                      </a><a href="../view/menuAnagrafiche.jsp"><img src="../layout/im/tit_sx_anagrafiche_off.gif" alt="anagrafiche" width="124" height="29" border="0"></a><br><br>
+                                      <a href="../view/ricercaPreventivi.jsp"><img src="../layout/im/tit_sx_gestionePreventivi_off.gif" alt="gestione preventivi" width="124" height="29" border="0"></a><br><br>
+                                      <a href="homeFrontOffice.htm"><br>
+                                      </a> <a href="../view/menuTabelle.jsp"><img src="../layout/im/tit_sx_datisistema_off.gif" alt="dati di sistema" width="124" height="29" border="0"></a><br>
+<!--                                       <br> -->
+<!--                                       <a href="../view/utility.jsp"><img src="../layout/im/tit_sx_utilita_off.gif" alt="utilit&agrave;" width="124" height="29" border="0"></a> -->
+                                      <br>
+                                      <br>
+                                      <a href="../controller/logout.jsp"><img src="../layout/im/tit_sx_logoutN_off.gif" alt="logout" width="124" height="29" border="0"><br>
+                                      <br>
+                                      </a> </div>
+
+
+
+                                  </td>
+                                  <td width="577" height="450" valign="top" bgcolor="#F2F1EA">
+                                    <h1>Campioni - analisi richieste</h1>
+                                    <h2> Modifica dati del campione </h2>
+                                    <table width="560" border="0" cellspacing="0" cellpadding="0" align="center">
+                                      <tr align="center" valign="top">
+                                        <td width="20%" class="pul">
+                                        <a href="#" onClick="pop('../report/anagraficaCampione##codiceMateriale.pdf?idRichiesta=##idRichiesta',647,480,'pdf');" class="pul_pag">Scheda di accompagnamento</a></td>
+                                        <td width="18%" class="pulselect">Modifica dati del campione</td>
+                                        <td width="15%" class="pul"><a href="../view/annullaRichiesta.jsp" class="pul_pag">Annulla richiesta</a></td>
+                                        <td width="15%" class="pul"><a href="../view/accettazioneScarto.jsp" class="pul_pag">Accettazione Scarto</a></td>
+                                        <td width="15%" class="pul"><a class="pul_pag" href="#" onclick="controlli(aggiorna,'scarica','/jsp/controller/verificaPagamento.jsp')">Verifica il Pagamento</a></td>
+                                        <td width="20%" class="pul"><a class="pul_pag" href="#" onclick="controlli(null,'scarica','');" style="cursor:hand">Scarica la ricevuta</a></td>
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <table width="466" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                      <td width="144" align="bottom">&nbsp;</td>
+                                      <td width="159" align="bottom"><a class="fuoco">coordinate<br>prelievo</td>
+                                      <td width="163" align="bottom"><a class="inseriti" href="../controller/dati.jsp">caratteristiche<br>campione</a></td>
+                                      </tr>
+                                    </table>
+                                    <table width="466" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td><div align="center"><img src="../layout/im/tit_coor_on.gif" alt="modifica dati del campione - menu di navigazione" width="466" height="22" border="0"></div></td>
+                                      </tr>
+                                    </table>
+                                    <table width="466" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                      <td width="65" align="top">&nbsp;</td>
+                                      <td width="159" align="top"><a class="inseriti" href="../view/identificazioneCampione.jsp">identificativi<br>campione</a></td>
+                                      <td width="166" align="top"><a class="inseriti " href="../view/datiAnagrafiche.jsp">utente e<br>proprietario</a></td><!-- ##disab -->
+                                      <td width="76" align="top"><a class="disabilitato" >analisi<br>richiesta</a></td><!-- href="../controller/analisi.jsp" -->
+                                      </tr>
+                                    </table>
+                                    <br>
+                                    <form name="coordinate" method="get" action="../controller/coordinatePrelievo.jsp">
+                                    <input type="hidden" name="piemonte" value="##piemonte">
+                                    <input type="hidden" name="tipoGeoreferenziazione" value="##tipoGeoreferenziazione">
+                                      <input type="hidden" name="metodo" value="">
+                                    <table width="98%" border="0" align="center">
+                                     @@errore
+                                      <tr>
+                                        <td colspan="4" class="testoERRORE">I dati contrassegnati da &nbsp;<img src="../layout/im/ko.gif">&nbsp;
+                                        non sono stati inseriti correttamente
+                                          <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      @@errore
+                                      @@erroreCongruenzaSigmater
+	                                    <tr>
+	                                      <td colspan="4" class="testoERRORE">Le coordinate UTM inserite non risultano congruenti con i dati catastali
+	                                      indicati (comune, sezione, foglio e particella)
+	                                        <br>
+	                                        <br>
+	                                      </td>
+	                                    </tr>
+	                                  @@erroreCongruenzaSigmater
+	                                  
+	                                 @@erroreCongruenzaSigmaterCatastali
+                                    <tr>
+                                      <td colspan="2" class="testoERRORE">I dati catastali inseriti non sono coerenti con il comune di prelievo indicato
+                                        <br>
+                                        <br>
+                                      </td>
+                                    </tr>
+                                    @@erroreCongruenzaSigmaterCatastali
+	                                     
+                                      @@modifica
+                                      <tr>
+                                        <td colspan="4" class="testoOK">Modifica effettuata correttamente
+                                          <br>
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      @@modifica
+                                      <tr>
+                                        <td colspan="4"> <div align="center">
+                                            <b>Dati zona del prelievo</b> </div></td>
+                                      </tr>
+                                      <tr>
+                                        <td >Comune (*)</td>
+                                        <td colspan="3"> 
+										<input name="comuneAppezzamento" value="##comune" type="text" class="testoCampi" size="50" maxlength="40">
+	                                     <input type="hidden" name="siglaProvincia" value="##siglaProvincia">
+	                                     <input type="hidden" name="istatComune" value="##istatComune">
+	                                     
+										<a href="javascript:popComuneSearch(coordinate.istatComune,coordinate.comuneAppezzamento,coordinate.siglaProvincia);" class="pulsante">Seleziona</a> 
+                                      
+                                        </td>
+							
+										
+										
+                                      </tr>
+                                      <tr>
+                                        <td >Localit&agrave;</td>
+                                        <td colspan="3"> <input name="localitaAppezzamento" value="##localitaAppezzamento" type="text"  class="testoCampi" size="40" maxlength="40">
+                                        <!-- <input type="hidden" name="localitaAppezzamento" value="##localitaAppezzamento"> -->
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>Sezione</td>
+                                        <td colspan="3"> <input name="sezione" onKeyPress="pulisciCoordinateBoagaGradiUtm();" type="text" class="testoCampi" size="30" maxlength="30" value="##sezione">
+                                        ##errore1</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Foglio</td>
+                                        <td> <input name="foglio" onKeyPress="pulisciCoordinateBoagaGradiUtm();" type="text" class="testoCampi" size="4" maxlength="4" value="##foglio">
+                                        ##errore2</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Particella catastale principale</td>
+                                        <td> <input name="particellaCatastale" onKeyPress="pulisciCoordinateBoagaGradiUtm();" type="text" class="testoCampi" size="5" maxlength="5" value="##particellaCatastale">
+                                        ##errore3</td>
+                                      </tr>
+                                      </tr>
+                                        <td>Altre particelle secondarie </td>
+                                        <td> <input name="subparticella" type="text" class="testoCampi" size="20" maxlength="20" value="##subparticella">
+                                        ##errore4</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Coord. Nord UTM</td>
+                                        <td> <input name="coordinataNordUtm" type="text" class="testoCampi" size="6" maxlength="7" value="##coordinataNordUtm"
+                                        onKeyPress="pulisciCoordinateBoagaGradi();">
+                                        ##errore7</td>
+                                        <td>Coord. Est UTM</td>
+                                        <td> <input name="coordinataEstUtm" type="text" class="testoCampi" size="5" maxlength="6" value="##coordinataEstUtm"
+                                        onKeyPress="pulisciCoordinateBoagaGradi();">
+                                        ##errore8</td>
+                                      </tr>
+                                      
+                                      <tr>
+                                         <td><a href="javascript:if (salva(coordinate,'si')) { coordinate.metodo.value='calcolaUTM'; coordinate.submit();}" class="pulsante" >Calcola Coord. UTM</a></td> 
+                                         <td colspan="3">Calcolo coord. UTM tramite dati catastali o coord. geografiche</td>
+                                      </tr>
+                                      
+                                      <tr>
+                                        <td>Coord. Nord GAUSS-BOAGA</td>
+                                        <td> <input name="coordinataNordBoaga" type="text" class="testoCampi" size="6" maxlength="7" value="##coordinataNordBoaga"
+                                        onKeyPress="pulisciCoordinateGradiUtm();">
+                                        ##errore5</td>
+                                        <td>Coord. Est GAUSS-BOAGA</td>
+                                        <td> <input name="coordinataEstBoaga" type="text" class="testoCampi" size="6" maxlength="7" value="##coordinataEstBoaga"
+                                        onKeyPress="pulisciCoordinateGradiUtm();">
+                                        ##errore6</td>
+                                      </tr>
+                                    </table>
+                                    
+                                    <br>
+                                    <input type="hidden" name="coordGradiOld" id="coordGradiOld" value="##coordGradiOld">
+                                    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2">
+                                      <tr>
+                                        <td>Coord. Gradi&nbsp;&nbsp;</td>
+                                        <td colspan="3"> 
+									      <input type="radio" name="coordGradi" value="DD" ##checkedGradiDecimali>
+									      Gradi decimali&nbsp;&nbsp;&nbsp;&nbsp;
+									      <input type="radio" name="coordGradi" value="DM" ##checkedGradiMinuti>
+									      Gradi e minuti decimali&nbsp;&nbsp;&nbsp;&nbsp;
+									      <input type="radio" name="coordGradi" value="DMS" ##checkedGradiMinutiSecondi>
+									      Gradi, minuti e secondi  
+									    </td>
+                                      </tr>
+                                    </table>
+                                    <table id="tblGradiNord" width="390" border="0" align="left">
+									  <tr>
+									    <td width="189">
+									  		<span style="position: relative; left:7px;">Coord. Nord Gradi</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="gradiNord" name="gradiNord" value="##gradiNord" size="1" maxlength="4" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textGradoNord">°</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="minutiNord" name="minutiNord"  value="##minutiNord" size="1" maxlength="4" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textMinutoNord">'</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="secondiNord" name="secondiNord"  value="##secondiNord" size="1" maxlength="4" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textSecondoNord">"</span>
+									  	</td>
+									  	<td>
+									  		<span style="position: relative; right:5px; top: 6px;" id="textVirgolaNord">,</span><input type="text" id="decimaliNord" name="decimaliNord"  value="##decimaliNord" size="6" maxlength="6" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();">
+									  	</td>
+									  </tr>
+									</table>
+									</br>
+									<table id="tblGradiEst" width="390" border="0" align="left">
+									  <tr>
+									    <td width="189">
+									  		<span style="position: relative; left:7px;">Coord. Est Gradi</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="gradiEst" name="gradiEst"  value="##gradiEst" size="1" maxlength="4" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textGradoEst">°</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="minutiEst" name="minutiEst"  value="##minutiEst" size="1" maxlength="4" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textMinutoEst">'</span>
+									  	</td>
+									  	<td>
+									  		<input type="text" id="secondiEst" name="secondiEst"  value="##secondiEst" size="1" maxlength="4" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();"><span style="position: relative; left:1px; top: -5px;" id="textSecondoEst">"</span>
+									  	</td>
+									  	<td>
+									  		<span style="position: relative; right:5px; top: 6px;" id="textVirgolaEst">,</span><input type="text" id="decimaliEst" name="decimaliEst"  value="##decimaliEst" size="6" maxlength="6" class="testoCampi"
+									  		onKeyPress="pulisciCoordinateBoagaUtm();">
+									  	</td>
+									  </tr>
+									</table>
+                                    <br>
+                                    <br>
+                                    
+                                    </form>
+                                    <br>
+                                    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                      <tr>
+                                        <td><div align="center"><a href="javascript:if (salva(coordinate,'no')) coordinate.submit();"><img src="../layout/im/b_conferma.gif" width="150" height="16" border="0"></a></div></td>
+                                       
+                                      </tr>
+                                    </table> <br></td>
+                                </tr>
+                              </table>
+                              </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td background="../layout/im/pix_verde_nuovo.gif"><img src="../layout/im/tra_pix.gif" width="2" height="1"></td>
+
+                      <td background="../layout/im/pix-gri-ban.gif"><img src="../layout/im/tra_pix.gif" width="1" height="1"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#333333">
+          <td><img src="../layout/im/banner_inf.jpg" width="618" height="14" border="0" alt="www.ruparpiemonte.it"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<span class="testoneroCopia"></span><span class="testonero"></span>
+</body>
+</html>
